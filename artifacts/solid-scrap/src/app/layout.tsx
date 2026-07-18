@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import './globals.css';
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://solid-scrap.com'),
   title: 'مؤسسة صلد الشمال لشراء الخردة والمعادن | Solid Scrap Of The North',
   description: 'مؤسسة صلد الشمال لشراء جميع أنواع الخردة والمعادن، الجمع، النقل، والفرز في المملكة العربية السعودية. حلول متكاملة للمخلفات الصناعية والورش والمصانع.',
   keywords: 'صلد الشمال, شراء خردة, سكراب تبوك, إعادة تدوير المعادن, شراء معادن السعودية, مخلفات صناعية',
