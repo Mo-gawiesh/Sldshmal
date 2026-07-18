@@ -257,8 +257,12 @@
     pointer-events: none;
   }
 
-  .no-default-hover-elevate {}
-  .no-default-active-elevate {}
+  .no-default-hover-elevate {
+    display: revert;
+  }
+  .no-default-active-elevate {
+    display: revert;
+  }
 
   .toggle-elevate::before,
   .toggle-elevate-2::before {
