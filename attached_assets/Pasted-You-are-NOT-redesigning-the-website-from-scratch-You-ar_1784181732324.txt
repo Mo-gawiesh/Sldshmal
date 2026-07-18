@@ -1,0 +1,267 @@
+You are NOT redesigning the website from scratch.
+
+You are refining and elevating the existing project into a world-class premium Arabic corporate website.
+
+The attached Brand Identity is the single source of truth.
+
+The website is for a Saudi Arabian industrial recycling company.
+
+Company:
+سكراب صلد الشمال
+Solid Scrap Of The North
+
+====================================================
+
+IMPORTANT
+
+The website must be designed natively in Arabic.
+
+RTL is NOT an afterthought.
+
+Everything must be built specifically for Arabic users.
+
+Arabic typography is the primary design language.
+
+English is secondary only where necessary.
+
+====================================================
+
+I will provide all photography.
+
+DO NOT generate AI images.
+
+DO NOT use stock illustrations.
+
+Create the layout using placeholders so I can replace every image later.
+
+Every section should support large cinematic photography.
+
+====================================================
+
+The current website feels too much like a generic corporate template.
+
+I want a premium editorial experience.
+
+Think less "template".
+
+Think more "architecture magazine".
+
+====================================================
+
+DESIGN DIRECTION
+
+Huge typography.
+
+Large margins.
+
+Editorial layouts.
+
+Swiss Grid.
+
+Luxury spacing.
+
+Minimal interface.
+
+Clean rhythm.
+
+Very few cards.
+
+Avoid repetitive sections.
+
+Every section should feel unique.
+
+====================================================
+
+The hero section must be completely redesigned.
+
+Current hero is too weak.
+
+Create a full-screen hero (100vh).
+
+Use a massive background image placeholder.
+
+Apply a subtle dark green overlay.
+
+Large Arabic headline.
+
+Minimal supporting paragraph.
+
+One primary CTA.
+
+One secondary CTA.
+
+Large amount of negative space.
+
+====================================================
+
+Photography must become the hero of the website.
+
+Every major section should use large edge-to-edge photography.
+
+Images should dominate.
+
+Text should support the imagery.
+
+====================================================
+
+The website currently lacks industrial identity.
+
+Introduce subtle industrial design language.
+
+Examples:
+
+clean steel-inspired divider lines
+
+large geometric compositions
+
+architectural spacing
+
+subtle pattern from the logo
+
+soft textured backgrounds
+
+premium material feeling
+
+Never overdecorate.
+
+====================================================
+
+Create a stronger Saudi industrial feeling.
+
+The user should immediately understand this is:
+
+A Saudi recycling company.
+
+Not a startup.
+
+Not a software company.
+
+Not an international template.
+
+====================================================
+
+Replace generic corporate sections with immersive storytelling.
+
+For example:
+
+Large image
+
+Short statement
+
+Supporting content
+
+Instead of small repetitive cards.
+
+====================================================
+
+Reduce visual noise.
+
+Reduce unnecessary icons.
+
+Reduce boxed layouts.
+
+Reduce borders.
+
+Increase whitespace dramatically.
+
+====================================================
+
+Animations
+
+Elegant only.
+
+Image reveal.
+
+Fade.
+
+Parallax.
+
+Section transitions.
+
+No floating effects.
+
+No bouncing.
+
+No flashy motion.
+
+====================================================
+
+Navigation
+
+Transparent over hero.
+
+Turns solid while scrolling.
+
+Minimal.
+
+Premium.
+
+Arabic first.
+
+====================================================
+
+Typography
+
+Use oversized Arabic headings.
+
+Elegant line-height.
+
+Strong hierarchy.
+
+Comfortable reading width.
+
+Premium editorial rhythm.
+
+====================================================
+
+Cards
+
+Avoid traditional cards whenever possible.
+
+Prefer editorial image layouts.
+
+Only use cards where absolutely necessary.
+
+====================================================
+
+Sections should feel like premium case studies rather than landing page blocks.
+
+====================================================
+
+Color Usage
+
+Follow the Brand Identity exactly.
+
+Dark Forest Green should dominate.
+
+Sand Beige for breathing space.
+
+Fresh Green only for accents.
+
+Never oversaturate the interface.
+
+====================================================
+
+The website must feel inspired by premium architecture studios and industrial companies.
+
+Not SaaS.
+
+Not AI.
+
+Not Startup.
+
+====================================================
+
+Overall Goal
+
+When someone opens the website they should immediately think:
+
+"This is a large Saudi industrial company."
+
+The website should feel expensive, timeless, minimal, editorial, architectural, and professionally art-directed.
+
+Every pixel should feel intentional.
+
+Every section should feel custom designed.
+
+The final result should be worthy of Behance Featured and Awwwards.

@@ -1,0 +1,221 @@
+I will provide:
+
+1. A complete Brand Identity PDF.
+2. A reference website for layout and user experience.
+
+The reference website is ONLY for layout inspiration.
+DO NOT copy it.
+DO NOT recreate it.
+
+The Brand Identity is the only visual source of truth.
+
+----------------------------------------------------
+
+IMPORTANT
+
+The website language is 100% Arabic.
+
+This is a Saudi company.
+
+Everything must be designed RTL.
+
+Arabic is the primary language.
+
+English is secondary only where necessary.
+
+Use proper RTL spacing, alignment and typography.
+
+Never design an English website then flip it to RTL.
+
+Design everything natively for Arabic.
+
+----------------------------------------------------
+
+Company
+
+Solid Scrap Of The North
+
+Saudi Arabian company specializing in:
+
+• Metal Purchasing
+• Scrap Trading
+• Industrial Recycling
+• Heavy Equipment
+• Sustainability
+• Industrial Waste Management
+
+----------------------------------------------------
+
+Website Personality
+
+Premium.
+
+Industrial.
+
+Modern.
+
+Corporate.
+
+Minimal.
+
+Confident.
+
+Saudi.
+
+Luxury.
+
+Not Startup.
+
+Not SaaS.
+
+----------------------------------------------------
+
+Visual Direction
+
+Follow the Brand Identity exactly.
+
+Use the supplied colors.
+
+Use the supplied typography style.
+
+Use the supplied logo.
+
+Use the supplied pattern.
+
+Use the supplied branding language.
+
+Every design decision must come from the Brand Identity.
+
+----------------------------------------------------
+
+Layout Inspiration
+
+Use the visual rhythm, spacing, hierarchy and premium feeling of this reference website:
+
+https://dbkiepers.nl/
+
+Large typography.
+
+Huge photography.
+
+Editorial spacing.
+
+Massive whitespace.
+
+Very clean layouts.
+
+Minimal UI.
+
+Professional composition.
+
+Elegant transitions.
+
+----------------------------------------------------
+
+Do NOT copy colors.
+
+Do NOT copy branding.
+
+Do NOT copy graphics.
+
+Only use it to understand pacing and premium layout.
+
+----------------------------------------------------
+
+Images
+
+Only use realistic Saudi industrial photography.
+
+Real recycling yards.
+
+Steel.
+
+Copper.
+
+Scrap.
+
+Heavy equipment.
+
+Containers.
+
+Warehouses.
+
+Workers.
+
+No AI illustrations.
+
+No fake 3D graphics.
+
+No cartoon icons.
+
+----------------------------------------------------
+
+Sections
+
+Hero
+
+About
+
+Services
+
+Industries
+
+Our Process
+
+Our Equipment
+
+Sustainability
+
+Projects
+
+FAQ
+
+Contact
+
+----------------------------------------------------
+
+UI Style
+
+Minimal navigation.
+
+Large hero.
+
+Oversized Arabic typography.
+
+Elegant section transitions.
+
+Rounded corners matching the identity.
+
+High-end photography.
+
+Soft animations.
+
+Editorial layout.
+
+Perfect spacing.
+
+----------------------------------------------------
+
+Quality Target
+
+Behance Featured.
+
+Awwwards.
+
+Pentagram.
+
+Collins.
+
+Lusion.
+
+Website should feel handcrafted.
+
+No templates.
+
+No AI feeling.
+
+No generic sections.
+
+Every block should look custom designed.
+
+Build the best Arabic industrial website possible.
