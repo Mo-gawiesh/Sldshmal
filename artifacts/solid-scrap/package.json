@@ -10,7 +10,7 @@
     "typecheck": "tsc -p tsconfig.json --noEmit"
   },
   "dependencies": {
-    "next": "15.4.2",
+    "next": "15.5.20",
     "react": "catalog:",
     "react-dom": "catalog:",
     "@hookform/resolvers": "^3.10.0",

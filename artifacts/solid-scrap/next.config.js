@@ -3,6 +3,7 @@ import path from 'path';
 /** @type {import('next').NextConfig} */
 const nextConfig = {
   webpack: (config) => {
+    config.resolve.alias['@'] = path.resolve(process.cwd(), './src');
     config.resolve.alias['@assets'] = path.resolve(process.cwd(), '../../attached_assets');
     return config;
   },
