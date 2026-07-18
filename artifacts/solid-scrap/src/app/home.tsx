@@ -222,7 +222,7 @@ function HeroSection() {
     <section ref={sectionRef} id="home" className="relative min-h-[100svh] flex flex-col justify-between overflow-hidden bg-[#111612] text-[#f4ecdf]">
       {/* Background Image Container with Parallax */}
       <div className="absolute inset-0">
-        <motion.div style={{ y: imgY }} className="absolute inset-0 scale-[1.15] will-change-transform">
+        <motion.div style={{ y: imgY }} className="absolute inset-0 scale-[1.15]">
           <Image
             src={heroImg}
             alt="ساحة خردة ومعادن في المملكة العربية السعودية"
@@ -235,7 +235,7 @@ function HeroSection() {
         </motion.div>
         <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(17,22,18,0.92)_0%,rgba(17,22,18,0.72)_45%,rgba(17,22,18,0.35)_100%)]" />
         <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(17,22,18,0.2)_0%,rgba(17,22,18,0.55)_100%)]" />
-        <div className="absolute inset-0 opacity-40 mix-blend-soft-light [background:radial-gradient(circle_at_top_right,rgba(152,194,95,0.22),transparent_28%),radial-gradient(circle_at_bottom_left,rgba(240,228,205,0.08),transparent_24%)]" />
+        <div className="absolute inset-0 opacity-40 [background:radial-gradient(circle_at_top_right,rgba(152,194,95,0.22),transparent_28%),radial-gradient(circle_at_bottom_left,rgba(240,228,205,0.08),transparent_24%)]" />
       </div>
 
       {/* Main Content Area */}
