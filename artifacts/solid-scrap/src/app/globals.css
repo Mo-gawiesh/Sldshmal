@@ -238,8 +238,11 @@
 
   body {
     @apply font-sans antialiased bg-background text-foreground;
-    font-family: var(--font-alexandria), sans-serif;
     direction: rtl;
+  }
+
+  .font-sans, body {
+    font-family: var(--font-alexandria), sans-serif !important;
   }
 }
 
