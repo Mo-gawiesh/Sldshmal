@@ -117,6 +117,7 @@ export function Navbar() {
               e.preventDefault();
               scrollToId('home');
             }}
+            aria-label="سكراب صلد الشمال - العودة للرئيسية"
             className="flex items-center gap-3"
           >
             <Image

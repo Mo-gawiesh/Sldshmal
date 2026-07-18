@@ -227,9 +227,9 @@ ${values.message || 'لا يوجد تفاصيل إضافية'}`;
                       name="name"
                       render={({ field }) => (
                         <FormItem className="space-y-0">
-                          <span className="block text-xs uppercase tracking-wider text-[#98c25f] font-bold mb-2">الاسم الكامل</span>
+                          <label htmlFor="name-input" className="block text-xs uppercase tracking-wider text-[#98c25f] font-bold mb-2">الاسم الكامل</label>
                           <FormControl>
-                            <Input placeholder="أدخل اسمك الكريم" {...field} className={inputClass} />
+                            <Input id="name-input" placeholder="أدخل اسمك الكريم" {...field} className={inputClass} />
                           </FormControl>
                           <FormMessage className="text-sm mt-2 text-[#ff6b6b]" />
                         </FormItem>
@@ -241,9 +241,10 @@ ${values.message || 'لا يوجد تفاصيل إضافية'}`;
                       name="phone"
                       render={({ field }) => (
                         <FormItem className="space-y-0">
-                          <span className="block text-xs uppercase tracking-wider text-[#98c25f] font-bold mb-2">رقم الجوال</span>
+                          <label htmlFor="phone-input" className="block text-xs uppercase tracking-wider text-[#98c25f] font-bold mb-2">رقم الجوال</label>
                           <FormControl>
                             <Input
+                              id="phone-input"
                               placeholder="05xxxxxxxx"
                               {...field}
                               className={inputClass}
@@ -262,9 +263,9 @@ ${values.message || 'لا يوجد تفاصيل إضافية'}`;
                       name="email"
                       render={({ field }) => (
                         <FormItem className="space-y-0">
-                           <span className="block text-xs uppercase tracking-wider text-[#98c25f] font-bold mb-2">البريد الإلكتروني (اختياري)</span>
+                           <label htmlFor="email-input" className="block text-xs uppercase tracking-wider text-[#98c25f] font-bold mb-2">البريد الإلكتروني (اختياري)</label>
                           <FormControl>
-                            <Input placeholder="example@mail.com" {...field} className={inputClass} style={{ direction: 'ltr', textAlign: 'right' }} />
+                            <Input id="email-input" placeholder="example@mail.com" {...field} className={inputClass} style={{ direction: 'ltr', textAlign: 'right' }} />
                           </FormControl>
                           <FormMessage className="text-sm mt-2 text-[#ff6b6b]" />
                         </FormItem>
@@ -276,9 +277,9 @@ ${values.message || 'لا يوجد تفاصيل إضافية'}`;
                       name="city"
                       render={({ field }) => (
                         <FormItem className="space-y-0">
-                           <span className="block text-xs uppercase tracking-wider text-[#98c25f] font-bold mb-2">المدينة (اختياري)</span>
+                           <label htmlFor="city-input" className="block text-xs uppercase tracking-wider text-[#98c25f] font-bold mb-2">المدينة (اختياري)</label>
                           <FormControl>
-                            <Input placeholder="أدخل مدينتك (مثل: تبوك)" {...field} className={inputClass} />
+                            <Input id="city-input" placeholder="أدخل مدينتك (مثل: تبوك)" {...field} className={inputClass} />
                           </FormControl>
                           <FormMessage className="text-sm mt-2 text-[#ff6b6b]" />
                         </FormItem>
@@ -291,10 +292,10 @@ ${values.message || 'لا يوجد تفاصيل إضافية'}`;
                     name="serviceType"
                     render={({ field }) => (
                       <FormItem className="space-y-0">
-                        <span className="block text-xs uppercase tracking-wider text-[#98c25f] font-bold mb-2">نوع الخدمة المطلوبة</span>
+                        <label id="service-type-label" className="block text-xs uppercase tracking-wider text-[#98c25f] font-bold mb-2">نوع الخدمة المطلوبة</label>
                         <Select onValueChange={field.onChange} defaultValue={field.value} dir="rtl">
                           <FormControl>
-                            <SelectTrigger className="h-14 bg-transparent border-0 border-b border-[#f4ecdf]/20 rounded-none px-0 text-base md:text-lg focus:ring-0 focus:ring-offset-0 text-[#f4ecdf] hover:border-[#98c25f] transition-colors [&>svg]:text-[#98c25f]">
+                            <SelectTrigger aria-labelledby="service-type-label" className="h-14 bg-transparent border-0 border-b border-[#f4ecdf]/20 rounded-none px-0 text-base md:text-lg focus:ring-0 focus:ring-offset-0 text-[#f4ecdf] hover:border-[#98c25f] transition-colors [&>svg]:text-[#98c25f]">
                               <SelectValue placeholder="اختر الخدمة المطلوبة" />
                             </SelectTrigger>
                           </FormControl>
@@ -316,9 +317,10 @@ ${values.message || 'لا يوجد تفاصيل إضافية'}`;
                     name="message"
                     render={({ field }) => (
                       <FormItem className="space-y-0">
-                        <span className="block text-xs uppercase tracking-wider text-[#98c25f] font-bold mb-2">تفاصيل الطلب / المواد المتوفرة (اختياري)</span>
+                        <label htmlFor="message-input" className="block text-xs uppercase tracking-wider text-[#98c25f] font-bold mb-2">تفاصيل الطلب / المواد المتوفرة (اختياري)</label>
                         <FormControl>
                           <Textarea
+                            id="message-input"
                             placeholder="الرجاء كتابة تفاصيل ونوع المواد أو الخردة المتوفرة وكمياتها التقريبية..."
                             className="min-h-[120px] resize-none bg-transparent border-0 border-b border-[#f4ecdf]/20 rounded-none px-0 text-[#f4ecdf] placeholder:text-[#f4ecdf]/35 focus-visible:ring-0 focus-visible:ring-offset-0 focus-visible:border-b-[#98c25f] text-base md:text-lg transition-colors"
                             {...field}
@@ -337,8 +339,9 @@ ${values.message || 'لا يوجد تفاصيل إضافية'}`;
 
                     <div className="grid gap-4 sm:grid-cols-4 items-start">
                       {/* Upload Button Box */}
-                      <label className="flex flex-col items-center justify-center h-24 border border-dashed border-white/20 hover:border-[#98c25f]/50 bg-white/5 rounded-xl cursor-pointer transition-colors group">
+                      <label htmlFor="file-upload" className="flex flex-col items-center justify-center h-24 border border-dashed border-white/20 hover:border-[#98c25f]/50 bg-white/5 rounded-xl cursor-pointer transition-colors group">
                         <input
+                          id="file-upload"
                           type="file"
                           multiple
                           accept="image/*"

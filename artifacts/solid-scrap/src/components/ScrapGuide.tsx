@@ -117,6 +117,7 @@ export function ScrapGuide() {
             <input
               type="text"
               placeholder="ابحث عن خامة أو معدن..."
+              aria-label="ابحث عن خامة أو معدن"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
               className="w-full h-12 bg-white/5 border border-white/10 rounded-full px-5 pr-12 text-sm text-[#f4ecdf] placeholder:text-[#f4ecdf]/40 focus:outline-none focus:border-[#98c25f] transition-all font-sans"
