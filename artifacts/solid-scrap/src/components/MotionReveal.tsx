@@ -1,5 +1,7 @@
-import React, { useState, useEffect } from 'react';
-import { motion, useReducedMotion } from 'framer-motion';
+'use client';
+
+import React, { useRef } from 'react';
+import { m, useInView, useReducedMotion } from 'framer-motion';
 
 interface MotionRevealProps {
   children: React.ReactNode;
@@ -9,6 +11,14 @@ interface MotionRevealProps {
   className?: string;
 }
 
+const directions = {
+  up: { y: 30, x: 0 },
+  down: { y: -30, x: 0 },
+  left: { x: 30, y: 0 },
+  right: { x: -30, y: 0 },
+  fade: { x: 0, y: 0 },
+};
+
 export function MotionReveal({
   children,
   direction = 'up',
@@ -17,48 +27,30 @@ export function MotionReveal({
   className = '',
 }: MotionRevealProps) {
   const shouldReduceMotion = useReducedMotion();
-  const [isMobile, setIsMobile] = useState(false);
+  const ref = useRef<HTMLDivElement>(null);
+  const isInView = useInView(ref, { once: true, amount: 0.05 });
 
-  useEffect(() => {
-    const checkMobile = () => {
-      setIsMobile(window.innerWidth <= 768);
-    };
-    checkMobile();
-    window.addEventListener('resize', checkMobile);
-    return () => window.removeEventListener('resize', checkMobile);
-  }, []);
-
-  // Bypass animations on mobile or if reduced motion is preferred
-  if (shouldReduceMotion || isMobile) {
+  // No animation on reduced-motion preference
+  if (shouldReduceMotion) {
     return <div className={className}>{children}</div>;
   }
 
-  const directions = {
-    up: { y: 30, x: 0 },
-    down: { y: -30, x: 0 },
-    left: { x: 30, y: 0 },
-    right: { x: -30, y: 0 },
-    fade: { x: 0, y: 0 },
-  };
-
-  const initial = {
-    opacity: 0,
-    ...directions[direction],
-  };
+  const initial = { opacity: 0, ...directions[direction] };
+  const animate = isInView ? { opacity: 1, x: 0, y: 0 } : initial;
 
   return (
-    <motion.div
+    <m.div
+      ref={ref}
       initial={initial}
-      whileInView={{ opacity: 1, x: 0, y: 0 }}
-      viewport={{ once: true, amount: 0.05 }}
+      animate={animate}
       transition={{
         duration,
         delay,
-        ease: [0.16, 1, 0.3, 1], // premium custom cubic-bezier
+        ease: [0.16, 1, 0.3, 1],
       }}
       className={className}
     >
       {children}
-    </motion.div>
+    </m.div>
   );
 }
