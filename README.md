@@ -91,13 +91,13 @@ Sald/                       # المجلد الرئيسي للمشروع (pnpm m
 1. **إعداد المجلد الرئيسي (Root Directory):**
    * اضبط قيمة الـ **Root Directory** على: `artifacts/solid-scrap`
 2. **إطار العمل الافتراضي (Framework Preset):**
-   * اختر **Vite** أو اتركه على خيار **Other** (سيتم التعرف عليه تلقائياً).
+   * اختر **Next.js** (سيتم التعرف عليه تلقائياً).
 3. **أوامر البناء والتثبيت (Build and Install Commands):**
-   * **Build Command:** `vite build --config vite.config.ts`
-   * **Output Directory:** `dist/public` (أو `dist` إذا كان الإعداد تلقائياً).
+   * **Build Command:** `next build`
+   * **Output Directory:** `.next` (الافتراضي لـ Next.js)
    * **Install Command:** `pnpm install`
 4. **متغيرات البيئة (Environment Variables):**
-   * **لا يتطلب الموقع أي متغيرات بيئة إجبارية**، حيث تم تهيئة ملف `vite.config.ts` لاستخدام منافذ وبادئات افتراضية تلقائية في حال غياب متغيرات `PORT` و `BASE_PATH` لمنع أي فشل في البناء داخل خوادم الـ CI.
+   * **لا يتطلب الموقع أي متغيرات بيئة إجبارية**. Next.js سيتعرف تلقائياً على إعدادات Vercel ويبني الموقع بنجاح.
 
 ---
 
