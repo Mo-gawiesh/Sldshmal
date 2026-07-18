@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useRef } from 'react';
-import { m, useInView, useReducedMotion } from 'framer-motion';
+import { motion, useInView, useReducedMotion } from 'framer-motion';
 
 interface MotionRevealProps {
   children: React.ReactNode;
@@ -39,7 +39,7 @@ export function MotionReveal({
   const animate = isInView ? { opacity: 1, x: 0, y: 0 } : initial;
 
   return (
-    <m.div
+    <motion.div
       ref={ref}
       initial={initial}
       animate={animate}
@@ -51,6 +51,6 @@ export function MotionReveal({
       className={className}
     >
       {children}
-    </m.div>
+    </motion.div>
   );
 }
