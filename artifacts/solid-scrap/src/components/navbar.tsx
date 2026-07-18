@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import Image from 'next/image';
 import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
 import { Menu, X, ArrowLeft, PhoneCall } from 'lucide-react';
 import { Button } from './ui/button';
@@ -118,10 +119,13 @@ export function Navbar() {
             }}
             className="flex items-center gap-3"
           >
-            <img
-              src={(logoImg as any).src || logoImg}
+            <Image
+              src={logoImg}
               alt="شعار سكرباب صلد الشمال"
+              width={160}
+              height={60}
               className="h-12 w-auto object-contain sm:h-15 transition-transform duration-300 hover:scale-102"
+              priority
             />
           </a>
         </div>

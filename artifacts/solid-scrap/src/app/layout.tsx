@@ -1,5 +1,13 @@
 import type { Metadata } from 'next';
+import { Alexandria } from 'next/font/google';
 import './globals.css';
+
+const alexandria = Alexandria({
+  subsets: ['arabic'],
+  weight: ['200', '300', '400', '500', '600', '700', '800', '900'],
+  variable: '--font-alexandria',
+  display: 'swap',
+});
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://solid-scrap.com'),
@@ -69,15 +77,12 @@ export default function RootLayout({
   return (
     <html lang="ar" dir="rtl" suppressHydrationWarning>
       <head>
-        <link rel="preconnect" href="https://fonts.googleapis.com" />
-        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
-        <link href="https://fonts.googleapis.com/css2?family=Alexandria:wght@200;300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className="antialiased min-h-screen bg-[#111612] text-[#f4ecdf] font-sans selection:bg-[#98c25f] selection:text-[#101610]">
+      <body className={`${alexandria.variable} antialiased min-h-screen bg-[#111612] text-[#f4ecdf] font-sans selection:bg-[#98c25f] selection:text-[#101610]`}>
         {children}
       </body>
     </html>

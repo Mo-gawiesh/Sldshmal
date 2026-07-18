@@ -1,19 +1,25 @@
 import { useEffect, useState, useRef } from 'react';
+import Image from 'next/image';
 import { usePathname } from 'next/navigation';
+import dynamic from 'next/dynamic';
 import { motion, useReducedMotion, AnimatePresence, useScroll, useTransform, useInView } from 'framer-motion';
 import { ArrowLeft, ArrowUpLeft, Factory, Recycle, ScanSearch, ShieldCheck, Sparkles, Truck, Leaf, PhoneCall } from 'lucide-react';
 
 import { Navbar } from '@/components/navbar';
-import { ContactForm } from '@/components/ContactForm';
-import { WhatsAppFloating } from '@/components/WhatsAppFloating';
 import { MotionReveal } from '@/components/MotionReveal';
 import { Button } from '@/components/ui/button';
-import { BackToTop } from '@/components/BackToTop';
 import { ReadingProgress } from '@/components/ReadingProgress';
-import { FAQSection } from '@/components/FAQSection';
-import { CoverageSection } from '@/components/CoverageSection';
-import { ScrapGuide } from '@/components/ScrapGuide';
 import { ActivityTicker } from '@/components/ActivityTicker';
+
+// SEO-friendly Dynamic Client Components (SSR enabled)
+const ContactForm = dynamic(() => import('@/components/ContactForm').then(m => m.ContactForm), { ssr: true });
+const FAQSection = dynamic(() => import('@/components/FAQSection').then(m => m.FAQSection), { ssr: true });
+const CoverageSection = dynamic(() => import('@/components/CoverageSection').then(m => m.CoverageSection), { ssr: true });
+const ScrapGuide = dynamic(() => import('@/components/ScrapGuide').then(m => m.ScrapGuide), { ssr: true });
+
+// Browser-only Dynamic Client Components (SSR disabled)
+const WhatsAppFloating = dynamic(() => import('@/components/WhatsAppFloating').then(m => m.WhatsAppFloating), { ssr: false });
+const BackToTop = dynamic(() => import('@/components/BackToTop').then(m => m.BackToTop), { ssr: false });
 
 import logoImg from '@assets/Logo_1_png_1784267438904.png';
 import visionLogoImg from '@assets/vision_2030.png';
@@ -217,11 +223,14 @@ function HeroSection() {
       {/* Background Image Container with Parallax */}
       <div className="absolute inset-0">
         <motion.div style={{ y: imgY }} className="absolute inset-0 scale-[1.15] will-change-transform">
-          <img
-            src={(heroImg as any).src || heroImg}
+          <Image
+            src={heroImg}
             alt="ساحة خردة ومعادن في المملكة العربية السعودية"
             className="h-full w-full object-cover object-center"
-            loading="eager"
+            priority
+            fill
+            sizes="100vw"
+            quality={85}
           />
         </motion.div>
         <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(17,22,18,0.92)_0%,rgba(17,22,18,0.72)_45%,rgba(17,22,18,0.35)_100%)]" />
@@ -360,11 +369,13 @@ function AboutSection() {
           <div className="lg:col-span-5">
             <MotionReveal direction="left" delay={0.1}>
               <div className="relative overflow-hidden border border-[#101610]/10 bg-[#101610] shadow-2xl aspect-[4/5] rounded-xl">
-                <img
-                  src={(aboutImg as any).src || aboutImg}
+                <Image
+                  src={aboutImg}
                   alt="فريق صناعي داخل منشأة إعادة تدوير المعادن"
-                  loading="lazy"
                   className="absolute inset-0 h-full w-full object-cover object-center"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 45vw"
+                  quality={80}
                 />
                 <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(17,22,18,0.05)_0%,rgba(17,22,18,0.4)_100%)]" />
                 <div className="absolute inset-x-0 bottom-0 flex items-end justify-between gap-4 p-6 text-[#f4ecdf]">
@@ -422,11 +433,13 @@ function ServicesSection() {
               >
                 {/* Service Image Container */}
                 <div className="w-full lg:w-[45%] overflow-hidden border border-white/5 bg-[#111612] relative rounded-lg" style={{ minHeight: '260px' }}>
-                  <img
-                    src={(service.image as any).src || service.image}
+                  <Image
+                    src={service.image}
                     alt={service.title}
-                    loading="lazy"
                     className="w-full h-full object-cover absolute inset-0 transition-transform duration-700 hover:scale-105"
+                    fill
+                    sizes="(max-width: 1024px) 100vw, 40vw"
+                    quality={80}
                     style={{ objectPosition: service.position }}
                   />
                 </div>
@@ -631,11 +644,13 @@ function EquipmentSection() {
           <div className="lg:col-span-7">
             <MotionReveal direction="left" delay={0.1}>
               <div className="relative overflow-hidden border border-white/10 aspect-[4/3] lg:aspect-auto lg:h-full lg:min-h-[350px] rounded-xl">
-                <img
-                  src={(equipmentImg as any).src || equipmentImg}
+                <Image
+                  src={equipmentImg}
                   alt="معدات مناولة ومواقع تشغيل للخردة"
-                  loading="lazy"
                   className="absolute inset-0 h-full w-full object-cover object-center"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 55vw"
+                  quality={80}
                 />
                 <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(35,55,42,0.72)_0%,rgba(35,55,42,0.22)_60%,rgba(35,55,42,0.36)_100%)]" />
                 <div className="absolute inset-x-0 bottom-0 border-t border-white/10 bg-[#111612]/90 p-4 sm:p-6 backdrop-blur-sm">
@@ -702,11 +717,13 @@ function SustainabilitySection() {
           <div className="lg:col-span-7">
             <MotionReveal direction="left" delay={0.1}>
               <div className="relative overflow-hidden border border-[#101610]/10 aspect-[4/3] lg:aspect-[16/10] rounded-xl">
-                <img
-                  src={(sustainabilityImg as any).src || sustainabilityImg}
+                <Image
+                  src={sustainabilityImg}
                   alt="مشهد يعكس إعادة التدوير والاسترداد الصناعي"
-                  loading="lazy"
                   className="absolute inset-0 h-full w-full object-cover object-center"
+                  fill
+                  sizes="(max-width: 1024px) 100vw, 55vw"
+                  quality={80}
                 />
                 <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(244,236,223,0.18)_0%,rgba(244,236,223,0.02)_52%,rgba(17,22,18,0.34)_100%)]" />
                 <div className="absolute left-0 top-0 h-full w-[1px] bg-[#3c6b43]/25" />
@@ -760,11 +777,13 @@ function ProjectsSection() {
                   className={`${story.span} group overflow-hidden border border-white/10 bg-[#0c100d] sm:col-span-12 rounded-xl`}
                 >
                   <div className="relative overflow-hidden aspect-[16/10]">
-                    <img
-                      src={(story.image as any).src || story.image}
+                    <Image
+                      src={story.image}
                       alt={story.title}
-                      loading="lazy"
                       className="absolute inset-0 h-full w-full object-cover object-center transition duration-700 group-hover:scale-[1.03]"
+                      fill
+                      sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                      quality={80}
                     />
                     <div className="absolute inset-0 bg-[linear-gradient(180deg,rgba(17,22,18,0.02)_0%,rgba(17,22,18,0.46)_100%)]" />
                   </div>
@@ -875,9 +894,11 @@ function FooterSection() {
           
           {/* COLUMN 1: Primary Brand (Right on Desktop) */}
           <div className="lg:col-span-5 flex flex-col items-center lg:items-start text-center lg:text-right order-1">
-            <img 
-              src={(logoImg as any).src || logoImg} 
+            <Image 
+              src={logoImg} 
               alt="شعار مؤسسة صلد الشمال" 
+              width={240}
+              height={110}
               className="h-[110px] w-auto object-contain mb-6 transition-transform duration-300 hover:scale-102" 
             />
             <p className="max-w-md text-base leading-relaxed text-[#f4ecdf]/70 font-light">
@@ -960,9 +981,11 @@ function FooterSection() {
           <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
             {/* Vision 2030 Logo and label (Right on Desktop) */}
             <div className="flex flex-col sm:flex-row items-center gap-4 text-center sm:text-right">
-              <img
-                src={(visionLogoImg as any).src || visionLogoImg}
+              <Image
+                src={visionLogoImg}
                 alt="رؤية المملكة 2030"
+                width={100}
+                height={48}
                 className="h-12 w-auto object-contain opacity-80 hover:opacity-100 transition-opacity duration-300"
               />
               <span className="text-xs text-[#f4ecdf]/40 font-semibold tracking-wider">
@@ -987,6 +1010,8 @@ function FooterSection() {
     </footer>
   );
 }
+
+const MotionImage = motion(Image);
 
 export default function HomePage() {
   const pathname = usePathname();
@@ -1039,9 +1064,11 @@ export default function HomePage() {
                 <div className="absolute inset-0 rounded-full border-2 border-[#98c25f]/25 animate-pulse scale-110" />
                 
                 {/* Rotating loader image representing recycle/reprocess */}
-                <motion.img
-                  src={(loaderImg as any).src || loaderImg}
+                <MotionImage
+                  src={loaderImg}
                   alt="صلد الشمال - جاري التحميل"
+                  width={112}
+                  height={112}
                   className="h-28 w-28 rounded-full border-2 border-[#98c25f] object-cover shadow-2xl"
                   animate={{ rotate: 360 }}
                   transition={{
