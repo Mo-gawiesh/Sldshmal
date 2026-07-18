@@ -1,4 +1,4 @@
-import { Link } from "wouter";
+import Link from "next/link";
 
 export default function NotFound() {
   return (
@@ -10,10 +10,8 @@ export default function NotFound() {
           عذراً، الصفحة التي تبحث عنها غير موجودة أو تم نقلها.
         </p>
         <div className="pt-8">
-          <Link href="/">
-            <div className="inline-flex h-14 items-center justify-center bg-[#98c25f] text-[#1a1f1a] px-8 text-lg font-bold hover:bg-[#98c25f]/90 transition-colors cursor-pointer">
-              العودة للرئيسية
-            </div>
+          <Link href="/" className="inline-flex h-14 items-center justify-center bg-[#98c25f] text-[#1a1f1a] px-8 text-lg font-bold hover:bg-[#98c25f]/90 transition-colors cursor-pointer">
+            العودة للرئيسية
           </Link>
         </div>
       </div>

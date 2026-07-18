@@ -2,7 +2,7 @@ import { useState, useEffect } from 'react';
 import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
 import { Menu, X, ArrowLeft, PhoneCall } from 'lucide-react';
 import { Button } from './ui/button';
-import { useLocation } from 'wouter';
+import { usePathname, useRouter } from 'next/navigation';
 import logoImg from '@assets/Logo_1_png_1784267438904.png';
 
 const navLinks = [
@@ -19,7 +19,8 @@ export function Navbar() {
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [activeLink, setActiveLink] = useState('home');
-  const [location, setLocation] = useLocation();
+  const pathname = usePathname();
+  const router = useRouter();
   const shouldReduceMotion = useReducedMotion();
 
   // Ticker informational messages (Safe Option B - no mocked numerical prices)
@@ -45,14 +46,14 @@ export function Navbar() {
 
   const scrollToId = (id: string) => {
     setIsOpen(false);
-    if (location !== '/') {
-      setLocation('/');
+    if (pathname !== '/') {
+      router.push('/');
       setTimeout(() => {
         const element = document.getElementById(id);
         if (element) {
           element.scrollIntoView({ behavior: 'smooth', block: 'start' });
         }
-      }, 150);
+      }, 200);
     } else {
       const element = document.getElementById(id);
       if (element) {
@@ -118,7 +119,7 @@ export function Navbar() {
             className="flex items-center gap-3"
           >
             <img
-              src={logoImg}
+              src={(logoImg as any).src || logoImg}
               alt="شعار سكرباب صلد الشمال"
               className="h-12 w-auto object-contain sm:h-15 transition-transform duration-300 hover:scale-102"
             />

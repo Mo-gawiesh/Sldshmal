@@ -1,5 +1,5 @@
 import { useEffect, useState, useRef } from 'react';
-import { useLocation } from 'wouter';
+import { usePathname } from 'next/navigation';
 import { motion, useReducedMotion, AnimatePresence, useScroll, useTransform, useInView } from 'framer-motion';
 import { ArrowLeft, ArrowUpLeft, Factory, Recycle, ScanSearch, ShieldCheck, Sparkles, Truck, Leaf, PhoneCall } from 'lucide-react';
 
@@ -218,7 +218,7 @@ function HeroSection() {
       <div className="absolute inset-0">
         <motion.div style={{ y: imgY }} className="absolute inset-0 scale-[1.15] will-change-transform">
           <img
-            src={heroImg}
+            src={(heroImg as any).src || heroImg}
             alt="ساحة خردة ومعادن في المملكة العربية السعودية"
             className="h-full w-full object-cover object-center"
             loading="eager"
@@ -361,7 +361,7 @@ function AboutSection() {
             <MotionReveal direction="left" delay={0.1}>
               <div className="relative overflow-hidden border border-[#101610]/10 bg-[#101610] shadow-2xl aspect-[4/5] rounded-xl">
                 <img
-                  src={aboutImg}
+                  src={(aboutImg as any).src || aboutImg}
                   alt="فريق صناعي داخل منشأة إعادة تدوير المعادن"
                   loading="lazy"
                   className="absolute inset-0 h-full w-full object-cover object-center"
@@ -423,7 +423,7 @@ function ServicesSection() {
                 {/* Service Image Container */}
                 <div className="w-full lg:w-[45%] overflow-hidden border border-white/5 bg-[#111612] relative rounded-lg" style={{ minHeight: '260px' }}>
                   <img
-                    src={service.image}
+                    src={(service.image as any).src || service.image}
                     alt={service.title}
                     loading="lazy"
                     className="w-full h-full object-cover absolute inset-0 transition-transform duration-700 hover:scale-105"
@@ -632,7 +632,7 @@ function EquipmentSection() {
             <MotionReveal direction="left" delay={0.1}>
               <div className="relative overflow-hidden border border-white/10 aspect-[4/3] lg:aspect-auto lg:h-full lg:min-h-[350px] rounded-xl">
                 <img
-                  src={equipmentImg}
+                  src={(equipmentImg as any).src || equipmentImg}
                   alt="معدات مناولة ومواقع تشغيل للخردة"
                   loading="lazy"
                   className="absolute inset-0 h-full w-full object-cover object-center"
@@ -703,7 +703,7 @@ function SustainabilitySection() {
             <MotionReveal direction="left" delay={0.1}>
               <div className="relative overflow-hidden border border-[#101610]/10 aspect-[4/3] lg:aspect-[16/10] rounded-xl">
                 <img
-                  src={sustainabilityImg}
+                  src={(sustainabilityImg as any).src || sustainabilityImg}
                   alt="مشهد يعكس إعادة التدوير والاسترداد الصناعي"
                   loading="lazy"
                   className="absolute inset-0 h-full w-full object-cover object-center"
@@ -761,7 +761,7 @@ function ProjectsSection() {
                 >
                   <div className="relative overflow-hidden aspect-[16/10]">
                     <img
-                      src={story.image}
+                      src={(story.image as any).src || story.image}
                       alt={story.title}
                       loading="lazy"
                       className="absolute inset-0 h-full w-full object-cover object-center transition duration-700 group-hover:scale-[1.03]"
@@ -876,7 +876,7 @@ function FooterSection() {
           {/* COLUMN 1: Primary Brand (Right on Desktop) */}
           <div className="lg:col-span-5 flex flex-col items-center lg:items-start text-center lg:text-right order-1">
             <img 
-              src={logoImg} 
+              src={(logoImg as any).src || logoImg} 
               alt="شعار مؤسسة صلد الشمال" 
               className="h-[110px] w-auto object-contain mb-6 transition-transform duration-300 hover:scale-102" 
             />
@@ -961,7 +961,7 @@ function FooterSection() {
             {/* Vision 2030 Logo and label (Right on Desktop) */}
             <div className="flex flex-col sm:flex-row items-center gap-4 text-center sm:text-right">
               <img
-                src={visionLogoImg}
+                src={(visionLogoImg as any).src || visionLogoImg}
                 alt="رؤية المملكة 2030"
                 className="h-12 w-auto object-contain opacity-80 hover:opacity-100 transition-opacity duration-300"
               />
@@ -989,12 +989,12 @@ function FooterSection() {
 }
 
 export default function HomePage() {
-  const [location] = useLocation();
+  const pathname = usePathname();
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
-    if (location !== '/') {
-      const sectionId = location.substring(1); // e.g. 'about', 'services', 'projects', 'contact'
+    if (pathname && pathname !== '/') {
+      const sectionId = pathname.substring(1); // e.g. 'about', 'services', 'projects', 'contact'
       const element = document.getElementById(sectionId);
       if (element) {
         setTimeout(() => {
@@ -1002,7 +1002,7 @@ export default function HomePage() {
         }, 200);
       }
     }
-  }, [location]);
+  }, [pathname]);
 
   useEffect(() => {
     const handleLoad = () => {
@@ -1040,7 +1040,7 @@ export default function HomePage() {
                 
                 {/* Rotating loader image representing recycle/reprocess */}
                 <motion.img
-                  src={loaderImg}
+                  src={(loaderImg as any).src || loaderImg}
                   alt="صلد الشمال - جاري التحميل"
                   className="h-28 w-28 rounded-full border-2 border-[#98c25f] object-cover shadow-2xl"
                   animate={{ rotate: 360 }}
