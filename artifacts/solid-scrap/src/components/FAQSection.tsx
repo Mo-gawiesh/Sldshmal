@@ -44,7 +44,7 @@ export function FAQSection() {
           <div className="lg:col-span-4 lg:sticky lg:top-32">
             <MotionReveal direction="up" delay={0.05}>
               <div className="flex items-center gap-4 text-[#3c6b43] mb-6">
-                <span className="text-xl md:text-2xl font-light tabular-nums">١١</span>
+                <span className="text-xl md:text-2xl font-light tabular-nums">١٤</span>
                 <div className="h-px flex-1 bg-current/25" />
                 <span className="text-[0.7rem] md:text-xs uppercase tracking-[0.35em] font-semibold">الأسئلة الشائعة</span>
               </div>

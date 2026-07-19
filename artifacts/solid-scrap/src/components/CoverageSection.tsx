@@ -80,7 +80,7 @@ export function CoverageSection() {
         <div className="max-w-4xl mb-16">
           <MotionReveal direction="up" delay={0.05}>
             <div className="flex items-center gap-4 text-[#98c25f] mb-6">
-              <span className="text-xl md:text-2xl font-light tabular-nums">١٠</span>
+              <span className="text-xl md:text-2xl font-light tabular-nums">١٢</span>
               <div className="h-px flex-1 bg-current/25" />
               <span className="text-[0.7rem] md:text-xs uppercase tracking-[0.35em] font-semibold">تغطية لوجستية واسعة</span>
             </div>

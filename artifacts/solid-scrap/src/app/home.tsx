@@ -1074,7 +1074,7 @@ function WhyUsSection() {
         <div className="grid gap-10 lg:grid-cols-12 lg:items-end mb-16">
           <div className="lg:col-span-5">
             <MotionReveal direction="up" delay={0.05}>
-              <SectionKicker index="٠٩" label="لماذا صلد الشمال" english="Why Solid Scrap" />
+              <SectionKicker index="١١" label="لماذا صلد الشمال" english="Why Solid Scrap" />
             </MotionReveal>
 
             <MotionReveal direction="up" delay={0.1}>

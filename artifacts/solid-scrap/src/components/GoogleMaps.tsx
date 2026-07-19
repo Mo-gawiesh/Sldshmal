@@ -22,7 +22,7 @@ export function GoogleMaps({
           <div className="lg:col-span-4 flex flex-col justify-between border border-white/10 bg-[#1a201b]/50 p-8 md:p-10 backdrop-blur-sm">
             <div>
               <div className="flex items-center gap-4 text-[#98c25f] mb-6">
-                <span className="text-3xl font-light tabular-nums">٠٩</span>
+                <span className="text-3xl font-light tabular-nums">١٣</span>
                 <div className="h-px flex-1 bg-current/25" />
                 <span className="text-xs uppercase tracking-[0.3em] font-semibold">موقعنا الجغرافي</span>
               </div>
