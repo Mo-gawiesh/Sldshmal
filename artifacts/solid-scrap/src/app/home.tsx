@@ -334,10 +334,10 @@ function AboutSection() {
               <div className="mt-8 flex flex-wrap items-center gap-6">
                 {/* Executive Signature */}
                 <div className="flex flex-col gap-1 border-r-2 border-[#3c6b43] pr-4">
-                  <span className="text-lg font-black text-[#3c6b43]">أبو عبدالله</span>
+                  <span className="text-lg font-black text-[#3c6b43]">أحمد السحيمي</span>
                   <span className="text-xs font-bold text-[#101610]/50 tracking-wider">المدير التنفيذي</span>
                 </div>
-                
+
                 {/* Secondary CTA */}
                 <button
                   onClick={() => scrollToId('why')}
@@ -402,14 +402,14 @@ function ServicesSection() {
           <MotionReveal direction="up" delay={0.05}>
             <SectionKicker index="٠٣" label="الخدمات" english="Immersive service storytelling" />
           </MotionReveal>
-          
+
           <MotionReveal direction="up" delay={0.1}>
             <h2 className="mt-4 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black leading-[1.4] tracking-normal">
               خدمات صناعية <br />
               <span className="text-[#98c25f]">تُقدم بمسؤولية وخبرة.</span>
             </h2>
           </MotionReveal>
-          
+
           <MotionReveal direction="up" delay={0.15}>
             <p className="mt-6 max-w-2xl text-base md:text-lg lg:text-xl leading-[1.75] text-[#f4ecdf]/80">
               لا نعتمد شبكة بطاقات متشابهة. كل خدمة هنا تُقدَّم كمشهد تشغيلي مستقل يوضح قيمته ومكانه داخل رحلة العمل.
@@ -454,11 +454,11 @@ function ServicesSection() {
                       </div>
                       <span className="text-xs uppercase tracking-[0.25em] text-[#f4ecdf]/60 font-semibold">{service.title}</span>
                     </div>
-                    
+
                     <h3 className="text-xl md:text-2xl font-black leading-[1.4] mb-4 text-[#f4ecdf]">
                       {service.title}
                     </h3>
-                    
+
                     <p className="text-base md:text-lg leading-[1.8] text-[#f4ecdf]/90 font-light">
                       {service.text}
                     </p>
@@ -499,7 +499,7 @@ function ScaleSection() {
             <MotionReveal direction="up" delay={0.05}>
               <SectionKicker index="٠٥" label="الأرقام" english="Placeholder until final data is confirmed" />
             </MotionReveal>
-            
+
             <MotionReveal direction="up" delay={0.1}>
               <h2 className="mt-4 max-w-2xl text-2xl sm:text-3xl md:text-4xl font-black leading-[1.4] tracking-normal">
                 أرقامنا التشغيلية <br />
@@ -507,7 +507,7 @@ function ScaleSection() {
               </h2>
             </MotionReveal>
           </div>
-          
+
           <div className="lg:col-span-7">
             <div className="grid gap-px bg-[#101610]/10 sm:grid-cols-2 lg:grid-cols-4">
               {stats.map((item, index) => (
@@ -537,20 +537,20 @@ function ProcessSection() {
     <section id="process" className="scroll-mt-32 bg-[#111612] py-20 md:py-28 text-[#f4ecdf]">
       <div className="mx-auto max-w-7xl px-6 lg:px-10">
         <div className="grid gap-12 lg:grid-cols-12 lg:items-start">
-          
+
           {/* Left Column: Heading and description */}
           <div className="lg:col-span-4 lg:sticky lg:top-32">
             <MotionReveal direction="up" delay={0.05}>
               <SectionKicker index="٠٦" label="آلية العمل" english="Process narrative" />
             </MotionReveal>
-            
+
             <MotionReveal direction="up" delay={0.1}>
               <h2 className="text-2xl sm:text-3xl md:text-4xl font-black leading-[1.4] tracking-normal mt-4">
                 مسار تشغيل <br />
                 <span className="text-[#98c25f]">واضح ومنسق.</span>
               </h2>
             </MotionReveal>
-            
+
             <MotionReveal direction="up" delay={0.15}>
               <p className="mt-6 text-base md:text-lg leading-[1.8] text-[#f4ecdf]/75 font-light">
                 نعرض العملية كخطوات واضحة ومتتالية، لأن القيمة الحقيقية في هذا القطاع تكمن في سلاسة التنفيذ من المعاينة الأولى وحتى التوريد النهائي.
@@ -570,7 +570,7 @@ function ProcessSection() {
               </button>
             </MotionReveal>
           </div>
-          
+
           {/* Right Column: Visual Steps Grid (Unified/Rebalanced) */}
           <div className="lg:col-span-8">
             <div className="grid gap-6 sm:grid-cols-2">
@@ -609,7 +609,7 @@ function EquipmentSection() {
         <MotionReveal direction="up" delay={0.05}>
           <SectionKicker index="٠٧" label="المعدات والعمليات" english="Operations and capability" />
         </MotionReveal>
-        
+
         <div className="mt-8 grid gap-12 lg:grid-cols-12 lg:items-stretch">
           <div className="lg:col-span-5 flex flex-col justify-between">
             <div>
@@ -619,14 +619,14 @@ function EquipmentSection() {
                   <span className="text-[#98c25f]">هي جوهر وعدنا الميداني.</span>
                 </h2>
               </MotionReveal>
-              
+
               <MotionReveal direction="up" delay={0.15}>
                 <p className="mt-6 max-w-xl text-base md:text-lg lg:text-xl leading-[1.8] text-[#f4ecdf]/75 font-light">
                   من المناولة إلى النقل والتحميل، نُظهر قدرة تشغيلية تشبه ما تراه في موقع عمل حقيقي: منظم، صلب، وقابل للتوسع.
                 </p>
               </MotionReveal>
             </div>
-            
+
             <MotionReveal direction="up" delay={0.2} className="mt-8 space-y-4 border-t border-white/10 pt-8">
               {[
                 'مناولة المواد الثقيلة والكبيرة',
@@ -687,20 +687,20 @@ function SustainabilitySection() {
             <MotionReveal direction="up" delay={0.05}>
               <SectionKicker index="٠٨" label="الاستدامة" english="Circular economy perspective" />
             </MotionReveal>
-            
+
             <MotionReveal direction="up" delay={0.1}>
               <h2 className="mt-4 max-w-2xl text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black leading-[1.4] tracking-normal">
                 الاستدامة لغة <br />
                 <span className="text-[#3c6b43]">تشغيلية وفعلية.</span>
               </h2>
             </MotionReveal>
-            
+
             <MotionReveal direction="up" delay={0.15}>
               <p className="mt-6 max-w-xl text-base md:text-lg lg:text-xl leading-[1.8] text-[#101610]/75 font-light">
                 نربط إعادة تدوير المعادن باسترداد الموارد وتقليل الهدر وتعزيز دورة صناعية أكثر كفاءة وموثوقية داخل السوق السعودي.
               </p>
             </MotionReveal>
-            
+
             <MotionReveal direction="up" delay={0.2} className="mt-10 divide-y divide-[#101610]/10 border-y border-[#101610]/10">
               {principles.map((item) => {
                 const Icon = item.icon;
@@ -748,7 +748,7 @@ function ProjectsSection() {
         <MotionReveal direction="up" delay={0.05}>
           <SectionKicker index="٠٩" label="العمليات" english="Editorial showcase" />
         </MotionReveal>
-        
+
         <div className="mt-8 grid gap-12 lg:grid-cols-12 lg:items-start">
           <div className="lg:col-span-4">
             <MotionReveal direction="up" delay={0.1}>
@@ -757,14 +757,14 @@ function ProjectsSection() {
                 <span className="text-[#98c25f]">تعكس قدراتنا الفعلية.</span>
               </h2>
             </MotionReveal>
-            
+
             <MotionReveal direction="up" delay={0.15}>
               <p className="mt-6 max-w-xl text-base md:text-lg lg:text-xl leading-[1.8] text-[#f4ecdf]/75 font-light">
                 نعرض الساحات والحركة الداخلية والإشارات الميدانية كما لو كانت صفحات من ملف معماري صناعي؛ كل صورة تؤكد أن وراءها منظومة عمل حقيقية.
               </p>
             </MotionReveal>
           </div>
-          
+
           <div className="lg:col-span-8">
             <div className="grid gap-6 sm:grid-cols-12">
               {projectStories.map((story, index) => (
@@ -798,7 +798,7 @@ function ProjectsSection() {
                 </motion.article>
               ))}
             </div>
-            
+
             {/* Secondary Exploration CTA */}
             <MotionReveal direction="up" delay={0.2} className="mt-12 flex justify-center">
               <button
@@ -827,7 +827,7 @@ function WhyUsSection() {
             <MotionReveal direction="up" delay={0.05}>
               <SectionKicker index="٠٩" label="لماذا صلد الشمال" english="Why Solid Scrap" />
             </MotionReveal>
-            
+
             <MotionReveal direction="up" delay={0.1}>
               <h2 className="mt-4 max-w-2xl text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-black leading-[1.4] tracking-normal">
                 ثقة مبنية على <br />
@@ -835,7 +835,7 @@ function WhyUsSection() {
               </h2>
             </MotionReveal>
           </div>
-          
+
           <div className="lg:col-span-7">
             <MotionReveal direction="up" delay={0.15}>
               <p className="max-w-2xl text-base md:text-lg lg:text-xl leading-[1.8] text-[#f4ecdf]/75 font-light">
@@ -888,23 +888,23 @@ function FooterSection() {
   return (
     <footer className="border-t border-white/10 bg-[#111612] text-[#f4ecdf] py-16 md:py-24">
       <div className="mx-auto max-w-7xl px-6 lg:px-10">
-        
+
         {/* Footer Top Grid */}
         <div className="grid gap-12 lg:grid-cols-12 lg:items-start">
-          
+
           {/* COLUMN 1: Primary Brand (Right on Desktop) */}
           <div className="lg:col-span-5 flex flex-col items-center lg:items-start text-center lg:text-right order-1">
-            <Image 
-              src={logoImg} 
-              alt="شعار مؤسسة صلد الشمال" 
+            <Image
+              src={logoImg}
+              alt="شعار مؤسسة صلد الشمال"
               width={240}
               height={110}
-              className="h-[110px] w-auto object-contain mb-6 transition-transform duration-300 hover:scale-102" 
+              className="h-[110px] w-auto object-contain mb-6 transition-transform duration-300 hover:scale-102"
             />
             <p className="max-w-md text-base leading-relaxed text-[#f4ecdf]/70 font-light">
               مؤسسة سعودية صناعية متخصصة في شراء المعادن والخردة وجمعها وفرزها وإعادة تدويرها بأسلوب تشغيلي منضبط ومهيأ للاستدامة والتنمية الاقتصادية.
             </p>
-            
+
             {/* Mobile-Only Primary WhatsApp CTA */}
             <div className="mt-6 w-full max-w-xs block lg:hidden">
               <a
@@ -920,7 +920,7 @@ function FooterSection() {
               </a>
             </div>
           </div>
-          
+
           {/* COLUMN 2: Site Navigation (Center on Desktop) */}
           <div className="lg:col-span-4 flex flex-col items-center lg:items-start text-center lg:text-right order-3 lg:order-2">
             <h3 className="text-sm font-bold uppercase tracking-[0.2em] text-[#98c25f] mb-6">خريطة الموقع</h3>
@@ -945,7 +945,7 @@ function FooterSection() {
               ))}
             </nav>
           </div>
-          
+
           {/* COLUMN 3: Contact (Left on Desktop) */}
           <div className="lg:col-span-3 flex flex-col items-center lg:items-start text-center lg:text-right order-2 lg:order-3">
             <h3 className="text-sm font-bold uppercase tracking-[0.2em] text-[#98c25f] mb-6">اتصل بنا</h3>
@@ -973,9 +973,9 @@ function FooterSection() {
               </a>
             </div>
           </div>
-          
+
         </div>
-        
+
         {/* Institutional Divider (Vision 2030 Aligned Row) */}
         <div className="mt-16 pt-8 border-t border-white/10">
           <div className="flex flex-col gap-6 lg:flex-row lg:items-center lg:justify-between">
@@ -1005,7 +1005,7 @@ function FooterSection() {
             © {new Date().getFullYear()} مؤسسة صلد الشمال. جميع الحقوق محفوظة.
           </div>
         </div>
-        
+
       </div>
     </footer>
   );
@@ -1051,7 +1051,7 @@ export default function HomePage() {
               <div className="relative">
                 {/* Outer glowing pulsing ring */}
                 <div className="absolute inset-0 rounded-full border-2 border-[#98c25f]/25 animate-pulse scale-110" />
-                
+
                 {/* Rotating loader image representing recycle/reprocess */}
                 <MotionImage
                   src={loaderImg}
@@ -1067,7 +1067,7 @@ export default function HomePage() {
                   }}
                 />
               </div>
-              
+
               {/* Brand label & loading state */}
               <div className="flex flex-col items-center gap-2">
                 <span className="text-sm font-bold tracking-[0.2em] text-[#98c25f] uppercase animate-pulse">صلد الشمال</span>
