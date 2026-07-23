@@ -4,7 +4,7 @@ import './globals.css';
 
 const alexandria = Alexandria({
   subsets: ['arabic'],
-  weight: ['200', '300', '400', '500', '600', '700', '800', '900'],
+  weight: ['300', '400', '500', '600', '700', '900'],
   variable: '--font-alexandria',
   display: 'swap',
 });
