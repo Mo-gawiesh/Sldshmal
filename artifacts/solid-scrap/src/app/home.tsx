@@ -1,5 +1,3 @@
-"use client";
-
 import { useEffect, useState, useRef } from 'react';
 import Image from 'next/image';
 import { usePathname } from 'next/navigation';
@@ -14,7 +12,7 @@ import { ActivityTicker } from '@/components/ActivityTicker';
 import { SectionKicker } from '@/components/SectionKicker';
 
 // SEO-friendly Dynamic Client Components (SSR enabled)
-const ContactForm = dynamic(() => import('@/components/ContactForm').then(m => m.ContactForm), { ssr: false });
+const ContactForm = dynamic(() => import('@/components/ContactForm').then(m => m.ContactForm), { ssr: true });
 const FAQSection = dynamic(() => import('@/components/FAQSection').then(m => m.FAQSection), { ssr: true });
 const CoverageSection = dynamic(() => import('@/components/CoverageSection').then(m => m.CoverageSection), { ssr: true });
 const ScrapGuide = dynamic(() => import('@/components/ScrapGuide').then(m => m.ScrapGuide), { ssr: true });
@@ -27,7 +25,7 @@ const ProcessSection = dynamic(() => import('@/components/sections/ProcessSectio
 const EquipmentSection = dynamic(() => import('@/components/sections/EquipmentSection').then(m => m.EquipmentSection), { ssr: true });
 const SustainabilitySection = dynamic(() => import('@/components/sections/SustainabilitySection').then(m => m.SustainabilitySection), { ssr: true });
 const ProjectsSection = dynamic(() => import('@/components/sections/ProjectsSection').then(m => m.ProjectsSection), { ssr: true });
-const GallerySection = dynamic(() => import('@/components/sections/GallerySection').then(m => m.GallerySection), { ssr: false });
+const GallerySection = dynamic(() => import('@/components/sections/GallerySection').then(m => m.GallerySection), { ssr: true });
 const WhyUsSection = dynamic(() => import('@/components/sections/WhyUsSection').then(m => m.WhyUsSection), { ssr: true });
 const FooterSection = dynamic(() => import('@/components/sections/FooterSection').then(m => m.FooterSection), { ssr: true });
 
