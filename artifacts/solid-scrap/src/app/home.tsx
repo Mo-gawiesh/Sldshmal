@@ -187,6 +187,48 @@ const galleryItems = [
     image: gallery5,
     desc: 'ساحة مجهزة لفصل قطاعات الألومنيوم وتخزينها تمهيداً للتوريد.',
   },
+  {
+    id: 6,
+    title: 'تنظيم الساحات الكبرى بتبوك',
+    category: 'yard',
+    image: projectsImg,
+    desc: 'مقرنا الرئيسي لتجميع الخردة والمعادن وتصنيفها.',
+  },
+  {
+    id: 7,
+    title: 'لوجستيات نقل مخلفات المصانع',
+    category: 'transport',
+    image: equipmentImg,
+    desc: 'أسطول شاحنات مجهز لنقل الحمولات الكبيرة.',
+  },
+  {
+    id: 8,
+    title: 'فرز وتجفيف الكابلات النحاسية',
+    category: 'metals',
+    image: aboutImg,
+    desc: 'تجهيز كابلات النحاس بعد تجريدها للفرز الأول.',
+  },
+  {
+    id: 9,
+    title: 'تجميع الألمنيوم والقطاعات الهيكلية',
+    category: 'metals',
+    image: processImg,
+    desc: 'فرز وتجهيز الألومنيوم قبل كبسه وتوريده.',
+  },
+  {
+    id: 10,
+    title: 'معدات الرفع والمناولة الثقيلة',
+    category: 'yard',
+    image: servicesImg,
+    desc: 'رافعات مخصصة لمناولة وتنزيل الأوزان الثقيلة.',
+  },
+  {
+    id: 11,
+    title: 'توريد حديد التسليح للمصانع',
+    category: 'transport',
+    image: sustainabilityImg,
+    desc: 'نقل وتوريد حديد التسليح وهياكل السيارات المستعملة.',
+  },
 ];
 
 
