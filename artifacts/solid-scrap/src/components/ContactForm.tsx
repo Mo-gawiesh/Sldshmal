@@ -88,35 +88,42 @@ export function ContactForm() {
     });
   };
 
-  function onSubmit(values: z.infer<typeof formSchema>) {
+  async function onSubmit(values: z.infer<typeof formSchema>) {
     setIsSubmitting(true);
     
-    const rawPhone = values.phone;
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(values),
+      });
 
-    const formattedMessage = `السلام عليكم،
-أرغب في طلب خدمة من سكراب صلد الشمال.
+      if (!response.ok) {
+        throw new Error('فشل التحقق من صحة البيانات على الخادم');
+      }
 
-• الاسم: ${values.name}
-• رقم الجوال: ${rawPhone}
-• البريد الإلكتروني: ${values.email || 'غير محدد'}
-• المدينة: ${values.city || 'غير محدد'}
-• نوع الخدمة: ${serviceLabels[values.serviceType] || values.serviceType}
-• الصور المرفقة: ${images.length > 0 ? `نعم، عدد (${images.length}) صور سأقوم بإرفاقها بالواتساب` : 'لا يوجد'}
-• تفاصيل الطلب:
-${values.message || 'لا يوجد تفاصيل إضافية'}`;
+      const data = await response.json();
 
-    toast({
-      title: 'جاري تحضير طلبك',
-      description: 'سيتم نقلك الآن إلى واتساب لإرسال الطلب. يرجى إرفاق صور السكراب يدوياً من ألبومك بعد فتح محادثة الدردشة.',
-      className: 'bg-[#23372a] text-[#f4ecdf] border border-white/10 rounded-none font-sans',
-    });
+      toast({
+        title: 'جاري تحضير طلبك',
+        description: 'سيتم نقلك الآن إلى واتساب لإرسال الطلب. يرجى إرفاق صور السكراب يدوياً من ألبومك بعد فتح محادثة الدردشة.',
+        className: 'bg-[#23372a] text-[#f4ecdf] border border-white/10 rounded-none font-sans',
+      });
 
-    setTimeout(() => {
-      const encodedText = encodeURIComponent(formattedMessage);
-      const whatsappUrl = `https://wa.me/966543019329?text=${encodedText}`;
-      window.open(whatsappUrl, '_blank', 'noopener,noreferrer');
+      setTimeout(() => {
+        window.open(data.whatsappUrl, '_blank', 'noopener,noreferrer');
+        setIsSubmitting(false);
+      }, 1200);
+    } catch (error) {
+      toast({
+        title: 'خطأ في التحقق من البيانات',
+        description: 'فشل التحقق من صحة البيانات المرسلة من الخادم. يرجى مراجعة المدخلات والمحاولة لاحقاً.',
+        className: 'bg-[#5c2222] text-[#f4ecdf] border border-white/10 rounded-none font-sans',
+      });
       setIsSubmitting(false);
-    }, 1200);
+    }
   }
 
   return (
