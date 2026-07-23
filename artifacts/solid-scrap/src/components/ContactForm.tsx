@@ -108,14 +108,17 @@ export function ContactForm() {
 
       toast({
         title: 'جاري تحضير طلبك',
-        description: 'سيتم نقلك الآن إلى واتساب لإرسال الطلب. يرجى إرفاق صور السكراب يدوياً من ألبومك بعد فتح محادثة الدردشة.',
+        description: 'سيتم توجيهك الآن إلى واتساب لإرسال الطلب...',
         className: 'bg-[#23372a] text-[#f4ecdf] border border-white/10 rounded-none font-sans',
       });
 
-      setTimeout(() => {
-        window.open(data.whatsappUrl, '_blank', 'noopener,noreferrer');
-        setIsSubmitting(false);
-      }, 1200);
+      // Attempt to open in a new tab; if blocked by desktop popup blocker, fallback to redirecting current window.
+      const newTab = window.open(data.whatsappUrl, '_blank', 'noopener,noreferrer');
+      if (!newTab || newTab.closed || typeof newTab.closed === 'undefined') {
+        window.location.href = data.whatsappUrl;
+      }
+      
+      setIsSubmitting(false);
     } catch (error) {
       toast({
         title: 'خطأ في التحقق من البيانات',
