@@ -31,6 +31,11 @@ import processImg from '@assets/generated_images/process.webp';
 import equipmentImg from '@assets/generated_images/equipment.webp';
 import sustainabilityImg from '@assets/generated_images/sustainability.webp';
 import projectsImg from '@assets/generated_images/projects.webp';
+import gallery1 from '@assets/generated_images/gallery_1.webp';
+import gallery2 from '@assets/generated_images/gallery_2.webp';
+import gallery3 from '@assets/generated_images/gallery_3.webp';
+import gallery4 from '@assets/generated_images/gallery_4.webp';
+import gallery5 from '@assets/generated_images/gallery_5.webp';
 
 const serviceRows = [
   {
@@ -149,45 +154,38 @@ const galleryCategories = [
 const galleryItems = [
   {
     id: 1,
-    title: 'ساحة الفرز الكبرى بتبوك',
+    title: 'تجميع خردة الحديد والمعادن',
     category: 'yard',
-    image: projectsImg,
-    desc: 'مقرنا الرئيسي لتجميع الخردة والمعادن وتصنيفها.',
+    image: gallery3,
+    desc: 'فرز وتجميع هياكل الحديد الكبيرة داخل ساحة الاستقبال بتبوك.',
   },
   {
     id: 2,
-    title: 'تجميع ونقل مخلفات المنشآت',
+    title: 'شحن ونقل السكراب الثقيل',
     category: 'transport',
-    image: equipmentImg,
-    desc: 'أسطول شاحنات مجهز لنقل الحمولات الكبيرة.',
+    image: gallery4,
+    desc: 'أسطول شاحنات مجهز لنقل وتفريغ الحمولات المعدنية الضخمة.',
   },
   {
     id: 3,
     title: 'فرز كابلات النحاس الأحمر',
     category: 'metals',
-    image: aboutImg,
-    desc: 'تجهيز كابلات النحاس بعد تجريدها للفرز الأول.',
+    image: gallery1,
+    desc: 'تجهيز وتصنيف النحاس الأحمر الممتاز بعد تجريد العوازل.',
   },
   {
     id: 4,
-    title: 'تصنيف قطاعات الألومنيوم',
+    title: 'فرز وتصنيف جنوط الألومنيوم',
     category: 'metals',
-    image: processImg,
-    desc: 'فرز وتجهيز الألومنيوم قبل كبسه وتوريده.',
+    image: gallery2,
+    desc: 'فرز جنوط وقطع الألومنيوم المختلفة لرفع نقاوة وجودة المواد.',
   },
   {
     id: 5,
-    title: 'رافعات ساحة الاستقبال',
+    title: 'مظلات فرز وتكديس قطاعات الألومنيوم',
     category: 'yard',
-    image: servicesImg,
-    desc: 'رافعات مخصصة لمناولة وتنزيل الأوزان الثقيلة.',
-  },
-  {
-    id: 6,
-    title: 'شحنات الحديد التالف للمصانع',
-    category: 'transport',
-    image: sustainabilityImg,
-    desc: 'نقل وتوريد حديد التسليح وهياكل السيارات المستعملة.',
+    image: gallery5,
+    desc: 'ساحة مجهزة لفصل قطاعات الألومنيوم وتخزينها تمهيداً للتوريد.',
   },
 ];
 
