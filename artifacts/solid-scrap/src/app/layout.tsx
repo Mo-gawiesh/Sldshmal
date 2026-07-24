@@ -81,6 +81,23 @@ export default function RootLayout({
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              document.addEventListener('contextmenu', function(e) { e.preventDefault(); });
+              document.addEventListener('keydown', function(e) {
+                if (
+                  e.key === 'F12' ||
+                  (e.ctrlKey && e.shiftKey && (e.key === 'I' || e.key === 'J' || e.key === 'C' || e.key === 'K')) ||
+                  (e.ctrlKey && e.key === 'u')
+                ) {
+                  e.preventDefault();
+                  e.stopPropagation();
+                }
+              });
+            `
+          }}
+        />
       </head>
       <body className={`${alexandria.variable} antialiased min-h-screen bg-[#111612] text-[#f4ecdf] font-sans selection:bg-[#98c25f] selection:text-[#101610]`}>
         {children}
