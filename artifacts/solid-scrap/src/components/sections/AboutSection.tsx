@@ -17,7 +17,7 @@ export function AboutSection() {
         <div className="grid items-center gap-12 lg:grid-cols-12 lg:gap-16">
           <div className="lg:col-span-7">
             <MotionReveal direction="up" delay={0.05}>
-              <SectionKicker index="٠٢" label="عن الشركة" english="Editorial introduction" />
+              <SectionKicker index="٠٢" label="عن الشركة" english="Editorial introduction" theme="light" />
             </MotionReveal>
 
             <MotionReveal direction="up" delay={0.1}>

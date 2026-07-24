@@ -17,7 +17,7 @@ export function ScaleSection() {
         <div className="grid gap-10 lg:grid-cols-12 lg:items-end">
           <div className="lg:col-span-5">
             <MotionReveal direction="up" delay={0.05}>
-              <SectionKicker index="٠٥" label="الأرقام" english="Placeholder until final data is confirmed" />
+              <SectionKicker index="٠٥" label="الأرقام" english="Placeholder until final data is confirmed" theme="light" />
             </MotionReveal>
 
             <MotionReveal direction="up" delay={0.1}>

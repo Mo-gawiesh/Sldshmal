@@ -17,7 +17,7 @@ export function SustainabilitySection() {
         <div className="grid gap-12 lg:grid-cols-12 lg:items-center">
           <div className="lg:col-span-5">
             <MotionReveal direction="up" delay={0.05}>
-              <SectionKicker index="٠٨" label="الاستدامة" english="Circular economy perspective" />
+              <SectionKicker index="٠٨" label="الاستدامة" english="Circular economy perspective" theme="light" />
             </MotionReveal>
 
             <MotionReveal direction="up" delay={0.1}>

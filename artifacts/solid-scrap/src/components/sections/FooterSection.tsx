@@ -83,6 +83,9 @@ export function FooterSection() {
             <div className="space-y-4 text-[#f4ecdf]/80 font-light text-base w-full">
               <a
                 href="https://wa.me/966543019329"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="+966 54 301 9329 - تواصل معنا عبر واتساب"
                 className="block hover:text-[#98c25f] transition-colors text-center lg:text-right"
                 dir="ltr"
               >
@@ -119,19 +122,19 @@ export function FooterSection() {
                 height={48}
                 className="h-12 w-auto object-contain opacity-80 hover:opacity-100 transition-opacity duration-300"
               />
-              <span className="text-xs text-[#f4ecdf]/40 font-semibold tracking-wider">
+              <span className="text-xs text-[#f4ecdf]/60 font-semibold tracking-wider">
                 رؤية المملكة العربية السعودية ٢٠٣٠
               </span>
             </div>
             {/* Sustainability statement (Left on Desktop) */}
-            <div className="text-center lg:text-left text-xs text-[#f4ecdf]/50 max-w-md font-light leading-relaxed">
+            <div className="text-center lg:text-left text-xs text-[#f4ecdf]/60 max-w-md font-light leading-relaxed">
               نسعى لتعزيز الاستدامة البيئية ودعم حلول الاقتصاد الدائري ضمن عمليات تدوير وتصنيع المعادن.
             </div>
           </div>
         </div>
 
         {/* Copyright strip */}
-        <div className="mt-12 flex flex-col gap-4 border-t border-white/5 pt-8 text-xs text-[#f4ecdf]/30 sm:flex-row sm:items-center sm:justify-between font-light tracking-wider">
+        <div className="mt-12 flex flex-col gap-4 border-t border-white/5 pt-8 text-xs text-[#f4ecdf]/60 sm:flex-row sm:items-center sm:justify-between font-light tracking-wider">
           <div className="text-center sm:text-right">
             © {new Date().getFullYear()} مؤسسة صلد الشمال. جميع الحقوق محفوظة.
           </div>
