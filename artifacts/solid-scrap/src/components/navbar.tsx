@@ -1,6 +1,5 @@
 import { useState, useEffect } from 'react';
 import Image from 'next/image';
-import { motion, AnimatePresence, useReducedMotion } from 'framer-motion';
 import { Menu, X, ArrowLeft, PhoneCall } from 'lucide-react';
 import { Button } from './ui/button';
 import { usePathname, useRouter } from 'next/navigation';
@@ -22,7 +21,6 @@ export function Navbar() {
   const [activeLink, setActiveLink] = useState('home');
   const pathname = usePathname();
   const router = useRouter();
-  const shouldReduceMotion = useReducedMotion();
 
   // Ticker informational messages (Safe Option B - no mocked numerical prices)
   const tickerMessages = [
@@ -100,10 +98,7 @@ export function Navbar() {
   const tickerList = [...tickerMessages, ...tickerMessages, ...tickerMessages];
 
   return (
-    <motion.header
-      initial={shouldReduceMotion ? {} : { y: -100 }}
-      animate={{ y: 0 }}
-      transition={{ duration: 0.7, ease: [0.16, 1, 0.3, 1] }}
+    <header
       className={`fixed inset-x-0 top-0 z-50 border-b border-black/10 transition-all duration-300 bg-[#446a4d] shadow-md`}
     >
       {/* Upper main header bar */}
@@ -127,6 +122,7 @@ export function Navbar() {
               height={60}
               className="h-12 w-auto object-contain sm:h-15 transition-transform duration-300 hover:scale-102"
               priority
+              fetchPriority="high"
             />
           </a>
         </div>
@@ -219,45 +215,41 @@ export function Navbar() {
       </div>
 
       {/* Mobile Menu */}
-      <AnimatePresence>
-        {isOpen && (
-          <motion.div
-            initial={shouldReduceMotion ? { opacity: 0 } : { opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: '100vh' }}
-            exit={shouldReduceMotion ? { opacity: 0 } : { opacity: 0, height: 0 }}
-            transition={{ duration: 0.4, ease: [0.16, 1, 0.3, 1] }}
-            className="fixed inset-x-0 top-[104px] bottom-0 z-40 bg-[#111612] lg:hidden border-t border-white/5 overflow-y-auto"
-          >
-            <div className="mx-auto max-w-7xl px-6 py-8">
-              <div className="grid gap-4">
-                {navLinks.map((link) => (
-                  <a
-                    key={link.id}
-                    href={`#${link.id}`}
-                    onClick={(e) => {
-                      e.preventDefault();
-                      scrollToId(link.id);
-                    }}
-                    className="flex items-center justify-between border border-[#f4ecdf]/10 px-5 py-4 text-base text-[#f4ecdf] hover:border-[#98c25f]/50 transition-colors"
-                  >
-                    <span className="font-semibold">{link.label}</span>
-                    <ArrowLeft className="h-4 w-4 text-[#98c25f]" />
-                  </a>
-                ))}
-              </div>
-              <button
-                onClick={() => scrollToId('contact')}
-                className="mt-8 inline-flex h-14 w-full items-center justify-between rounded-full bg-[#98c25f] pl-1.5 pr-6 text-base font-bold text-[#101610] hover:bg-[#b3d37f] transition-all shadow-md cursor-pointer gap-4 group"
+      <div
+        className={`fixed inset-x-0 top-[104px] bottom-0 z-40 bg-[#111612] lg:hidden border-t border-white/5 overflow-y-auto transition-all duration-300 ${
+          isOpen
+            ? 'opacity-100 translate-y-0 pointer-events-auto'
+            : 'opacity-0 -translate-y-4 pointer-events-none'
+        }`}
+      >
+        <div className="mx-auto max-w-7xl px-6 py-8">
+          <div className="grid gap-4">
+            {navLinks.map((link) => (
+              <a
+                key={link.id}
+                href={`#${link.id}`}
+                onClick={(e) => {
+                  e.preventDefault();
+                  scrollToId(link.id);
+                }}
+                className="flex items-center justify-between border border-[#f4ecdf]/10 px-5 py-4 text-base text-[#f4ecdf] hover:border-[#98c25f]/50 transition-colors"
               >
-                <span>تواصل سريع</span>
-                <span className="h-11 w-11 rounded-full bg-white flex items-center justify-center text-[#101610] shrink-0 shadow-sm transition-transform duration-300 group-hover:scale-105">
-                  <PhoneCall className="h-4 w-4 text-[#101610]" />
-                </span>
-              </button>
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
-    </motion.header>
+                <span className="font-semibold">{link.label}</span>
+                <ArrowLeft className="h-4 w-4 text-[#98c25f]" />
+              </a>
+            ))}
+          </div>
+          <button
+            onClick={() => scrollToId('contact')}
+            className="mt-8 inline-flex h-14 w-full items-center justify-between rounded-full bg-[#98c25f] pl-1.5 pr-6 text-base font-bold text-[#101610] hover:bg-[#b3d37f] transition-all shadow-md cursor-pointer gap-4 group"
+          >
+            <span>تواصل سريع</span>
+            <span className="h-11 w-11 rounded-full bg-white flex items-center justify-center text-[#101610] shrink-0 shadow-sm transition-transform duration-300 group-hover:scale-105">
+              <PhoneCall className="h-4 w-4 text-[#101610]" />
+            </span>
+          </button>
+        </div>
+      </div>
+    </header>
   );
 }
