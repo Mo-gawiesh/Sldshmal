@@ -44,12 +44,7 @@ export function dispatchEventToAnalytics(eventName: string, params: EventParams 
       ...params,
     };
 
-    // 1. Send to Google Analytics (GA4)
-    if (typeof window.gtag === 'function') {
-      window.gtag('event', eventName, enrichedParams);
-    }
-
-    // 2. Send to Google Tag Manager (dataLayer push)
+    // 1. Send to Google Tag Manager (dataLayer push)
     if (Array.isArray(window.dataLayer)) {
       window.dataLayer.push({
         event: eventName,

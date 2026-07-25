@@ -3,7 +3,7 @@
 import React, { useState, useEffect, Suspense } from 'react';
 import { usePathname, useSearchParams } from 'next/navigation';
 import Script from 'next/script';
-import { GoogleAnalytics, GoogleTagManager } from '@next/third-parties/google';
+import { GoogleTagManager } from '@next/third-parties/google';
 import { dispatchEventToAnalytics } from '@/lib/analytics';
 
 interface AnalyticsProviderProps {
@@ -157,7 +157,6 @@ export function AnalyticsProvider({ children }: AnalyticsProviderProps) {
       {/* Initialize third-party scripts ONLY in production when enabled */}
       {isProduction && analyticsEnabled && (
         <>
-          {gaId && <GoogleAnalytics gaId={gaId} />}
           {gtmId && <GoogleTagManager gtmId={gtmId} />}
           {clarityId && (
             <Script
