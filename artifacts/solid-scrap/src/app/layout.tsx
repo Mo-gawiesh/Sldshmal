@@ -1,6 +1,9 @@
 import type { Metadata } from 'next';
 import { Alexandria } from 'next/font/google';
 import './globals.css';
+import { siteConfig } from '@/config/site';
+import { getStructuredData } from '@/lib/structured-data';
+import { AnalyticsProvider } from '@/components/AnalyticsProvider';
 
 const alexandria = Alexandria({
   subsets: ['arabic'],
@@ -10,63 +13,27 @@ const alexandria = Alexandria({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL('https://solid-scrap.com'),
-  title: 'مؤسسة صلد الشمال لشراء الخردة والمعادن | Solid Scrap Of The North',
-  description: 'مؤسسة صلد الشمال لشراء جميع أنواع الخردة والمعادن، الجمع، النقل، والفرز في المملكة العربية السعودية. حلول متكاملة للمخلفات الصناعية والورش والمصانع.',
-  keywords: 'صلد الشمال, شراء خردة, سكراب تبوك, إعادة تدوير المعادن, شراء معادن السعودية, مخلفات صناعية',
+  metadataBase: new URL(siteConfig.url),
+  title: `${siteConfig.name} | ${siteConfig.alternateName}`,
+  description: siteConfig.description,
+  keywords: siteConfig.keywords,
   robots: 'index, follow',
+  alternates: {
+    canonical: `${siteConfig.url}/`,
+  },
   openGraph: {
     type: 'website',
-    url: 'https://solid-scrap.com/',
-    title: 'مؤسسة صلد الشمال لشراء الخردة والمعادن | Solid Scrap Of The North',
-    description: 'شراء، نقل، فرز، وإعادة تدوير المعادن والخردة بأسلوب ميداني احترافي متوافق مع رؤية السعودية 2030.',
-    images: '/attached_assets/generated_images/hero.jpg',
+    url: `${siteConfig.url}/`,
+    title: `${siteConfig.name} | ${siteConfig.alternateName}`,
+    description: siteConfig.description,
+    images: siteConfig.ogImage,
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'مؤسسة صلد الشمال لشراء الخردة والمعادن',
-    description: 'حلول شراء ونقل وتدوير السكراب والمعادن في المملكة العربية السعودية.',
-    images: '/attached_assets/generated_images/hero.jpg',
+    title: siteConfig.name,
+    description: siteConfig.description,
+    images: siteConfig.ogImage,
   },
-};
-
-const jsonLd = {
-  "@context": "https://schema.org",
-  "@type": "LocalBusiness",
-  "name": "مؤسسة صلد الشمال لشراء الخردة والمعادن",
-  "alternateName": "Solid Scrap Of The North",
-  "description": "مؤسسة سعودية متخصصة في شراء المعادن والخردة، وجمعها، وفرزها، وإعادة تدويرها.",
-  "url": "https://solid-scrap.com/",
-  "logo": "https://solid-scrap.com/attached_assets/Logo_1_png_1784267438904.png",
-  "image": "https://solid-scrap.com/attached_assets/generated_images/hero.jpg",
-  "telephone": "+966543019329",
-  "email": "Sldalshmal@gmail.com",
-  "address": {
-    "@type": "PostalAddress",
-    "streetAddress": "المنطقة الصناعية",
-    "addressLocality": "تبوك",
-    "addressCountry": "SA"
-  },
-  "geo": {
-    "@type": "GeoCoordinates",
-    "latitude": "28.5595749",
-    "longitude": "36.6860525"
-  },
-  "hasMap": "https://maps.app.goo.gl/RwZqwLyBnBpYRP7S6",
-  "openingHoursSpecification": {
-    "@type": "OpeningHoursSpecification",
-    "dayOfWeek": [
-      "Monday",
-      "Tuesday",
-      "Wednesday",
-      "Thursday",
-      "Friday",
-      "Saturday",
-      "Sunday"
-    ],
-    "opens": "00:00",
-    "closes": "23:59"
-  }
 };
 
 export default function RootLayout({
@@ -74,13 +41,18 @@ export default function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
+  const jsonLdList = getStructuredData();
+
   return (
     <html lang="ar" dir="rtl" suppressHydrationWarning>
       <head>
-        <script
-          type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
-        />
+        {jsonLdList.map((schema, index) => (
+          <script
+            key={index}
+            type="application/ld+json"
+            dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+          />
+        ))}
         <script
           dangerouslySetInnerHTML={{
             __html: `
@@ -100,7 +72,9 @@ export default function RootLayout({
         />
       </head>
       <body className={`${alexandria.variable} antialiased min-h-screen bg-[#111612] text-[#f4ecdf] font-sans selection:bg-[#98c25f] selection:text-[#101610]`}>
-        {children}
+        <AnalyticsProvider>
+          {children}
+        </AnalyticsProvider>
       </body>
     </html>
   );

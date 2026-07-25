@@ -3,6 +3,7 @@ import { useForm } from 'react-hook-form';
 import { zodResolver } from '@hookform/resolvers/zod';
 import * as z from 'zod';
 import { useToast } from '@/hooks/use-toast';
+import { useAnalytics } from '@/hooks/useAnalytics';
 import { Phone, Mail, Clock, Send, MapPin, ExternalLink, Upload, X, Paperclip } from 'lucide-react';
 import {
   Form,
@@ -54,6 +55,22 @@ const inputClass =
 export function ContactForm() {
   const { toast } = useToast();
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const {
+    trackWhatsApp,
+    trackEmail,
+    trackMap,
+    trackFormStart,
+    trackFormSubmit,
+    trackFormError,
+  } = useAnalytics();
+  const [formTrackingStarted, setFormTrackingStarted] = useState(false);
+
+  const handleFormFocus = () => {
+    if (!formTrackingStarted) {
+      setFormTrackingStarted(true);
+      trackFormStart();
+    }
+  };
 
   const form = useForm<z.infer<typeof formSchema>>({
     resolver: zodResolver(formSchema),
@@ -90,6 +107,7 @@ export function ContactForm() {
 
   async function onSubmit(values: z.infer<typeof formSchema>) {
     setIsSubmitting(true);
+    trackFormSubmit();
     
     try {
       const response = await fetch('/api/contact', {
@@ -120,6 +138,8 @@ export function ContactForm() {
       
       setIsSubmitting(false);
     } catch (error) {
+      const errorMsg = error instanceof Error ? error.message : 'Fails server validation';
+      trackFormError(errorMsg);
       toast({
         title: 'خطأ في التحقق من البيانات',
         description: 'فشل التحقق من صحة البيانات المرسلة من الخادم. يرجى مراجعة المدخلات والمحاولة لاحقاً.',
@@ -128,6 +148,13 @@ export function ContactForm() {
       setIsSubmitting(false);
     }
   }
+
+  const onFormError = (errors: any) => {
+    const errorMsg = Object.keys(errors)
+      .map((key) => `${key}: ${errors[key]?.message}`)
+      .join(', ');
+    trackFormError(errorMsg);
+  };
 
   return (
     <section id="contact" className="relative scroll-mt-32 bg-[#0f1410] py-24 text-[#f4ecdf] lg:py-36 border-t border-white/5">
@@ -165,6 +192,8 @@ export function ContactForm() {
                     <span className="block text-xs uppercase tracking-wider text-[#98c25f] font-bold mb-1">اتصال أو واتساب</span>
                     <a
                       href="https://wa.me/966543019329"
+                      onClick={() => trackWhatsApp('contact_info', '+966 54 301 9329')}
+                      data-tracked="true"
                       className="text-base md:text-lg font-bold hover:text-[#98c25f] transition-colors"
                       style={{ direction: 'ltr', display: 'inline-block' }}
                     >
@@ -179,6 +208,8 @@ export function ContactForm() {
                     <span className="block text-xs uppercase tracking-wider text-[#98c25f] font-bold mb-1">البريد الإلكتروني</span>
                     <a
                       href="mailto:Sldalshmal@gmail.com"
+                      onClick={() => trackEmail('contact_info', 'Sldalshmal@gmail.com')}
+                      data-tracked="true"
                       className="text-base md:text-lg font-bold hover:text-[#98c25f] transition-colors"
                     >
                       Sldalshmal@gmail.com
@@ -214,6 +245,8 @@ export function ContactForm() {
                 href="https://maps.app.goo.gl/RwZqwLyBnBpYRP7S6"
                 target="_blank"
                 rel="noopener noreferrer"
+                onClick={() => trackMap('contact_info')}
+                data-tracked="true"
                 className="inline-flex h-12 w-full items-center justify-between rounded-full bg-[#98c25f] pl-1 pr-4 text-xs font-bold text-[#101610] hover:bg-[#b3d37f] transition-all shadow-md cursor-pointer gap-3 group"
               >
                 <span>فتح الموقع في خرائط جوجل</span>
@@ -229,7 +262,7 @@ export function ContactForm() {
             <MotionReveal direction="up" delay={0.2} className="border border-white/5 bg-[#141a15]/30 p-8 md:p-12 lg:p-14 rounded-xl">
               <h3 className="text-xl md:text-2xl font-bold mb-8 text-[#98c25f]">طلب تسعير ومعاينة ميدانية</h3>
               <Form {...form}>
-                <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+                <form onSubmit={form.handleSubmit(onSubmit, onFormError)} onFocus={handleFormFocus} className="space-y-8">
                   
                   <div className="grid gap-8 md:grid-cols-2">
                     <FormField

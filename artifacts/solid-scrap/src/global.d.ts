@@ -14,3 +14,9 @@ declare module "*.svg" {
   const content: any;
   export default content;
 }
+
+interface Window {
+  dataLayer: any[];
+  gtag: (...args: any[]) => void;
+  clarity?: (...args: any[]) => void;
+}

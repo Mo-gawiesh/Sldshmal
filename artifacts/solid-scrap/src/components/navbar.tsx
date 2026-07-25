@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { useAnalytics } from '@/hooks/useAnalytics';
 import Image from 'next/image';
 import { Menu, X, ArrowLeft, PhoneCall } from 'lucide-react';
 import { Button } from './ui/button';
@@ -16,6 +17,7 @@ const navLinks = [
 ];
 
 export function Navbar() {
+  const { trackCustomEvent } = useAnalytics();
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
   const [activeLink, setActiveLink] = useState('home');
@@ -154,7 +156,15 @@ export function Navbar() {
         {/* Left: Capsule Button */}
         <div className="hidden lg:flex lg:flex-1 justify-end">
           <button
-            onClick={() => scrollToId('contact')}
+            onClick={() => {
+              trackCustomEvent('header_cta_click', {
+                section: 'header',
+                button_name: 'تواصل سريع',
+                cta_type: 'scroll_to_contact',
+              });
+              scrollToId('contact');
+            }}
+            data-tracked="true"
             className="inline-flex h-11 items-center justify-between rounded-full bg-[#98c25f] pl-1 pr-4 text-xs font-bold text-[#101610] hover:bg-[#b3d37f] transition-all shadow-md cursor-pointer gap-3 group"
           >
             <span>تواصل سريع</span>
@@ -240,7 +250,15 @@ export function Navbar() {
             ))}
           </div>
           <button
-            onClick={() => scrollToId('contact')}
+            onClick={() => {
+              trackCustomEvent('header_cta_click', {
+                section: 'header_mobile',
+                button_name: 'تواصل سريع',
+                cta_type: 'scroll_to_contact_mobile',
+              });
+              scrollToId('contact');
+            }}
+            data-tracked="true"
             className="mt-8 inline-flex h-14 w-full items-center justify-between rounded-full bg-[#98c25f] pl-1.5 pr-6 text-base font-bold text-[#101610] hover:bg-[#b3d37f] transition-all shadow-md cursor-pointer gap-4 group"
           >
             <span>تواصل سريع</span>
