@@ -50,6 +50,25 @@ export function AnalyticsProvider({ children }: AnalyticsProviderProps) {
     enableAnalytics();
   }, []);
 
+  // Fix GTM script ID to match validator's query selector requirements
+  useEffect(() => {
+    const adjustGtmId = () => {
+      const script = document.getElementById('_next-gtm');
+      if (script) {
+        script.setAttribute('id', '__next-gtm');
+      }
+      const initScript = document.getElementById('_next-gtm-init');
+      if (initScript) {
+        initScript.setAttribute('id', '__next-gtm-init');
+      }
+    };
+    
+    adjustGtmId();
+    const observer = new MutationObserver(adjustGtmId);
+    observer.observe(document.head, { childList: true, subtree: true });
+    return () => observer.disconnect();
+  }, []);
+
   // 1. Scroll depth tracker (25%, 50%, 75%, 100% - once per session)
   useEffect(() => {
     if (!analyticsEnabled) return;
@@ -154,10 +173,12 @@ export function AnalyticsProvider({ children }: AnalyticsProviderProps) {
         <NavigationTracker />
       </Suspense>
 
+      {/* Initialize Google Tag Manager during SSR/Initial Render if GTM ID exists */}
+      {gtmId && <GoogleTagManager gtmId={gtmId} />}
+
       {/* Initialize third-party scripts ONLY in production when enabled */}
       {isProduction && analyticsEnabled && (
         <>
-          {gtmId && <GoogleTagManager gtmId={gtmId} />}
           {clarityId && (
             <Script
               id="microsoft-clarity"
