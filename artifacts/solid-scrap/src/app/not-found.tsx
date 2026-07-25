@@ -14,7 +14,7 @@ export default function NotFound() {
         {/* 404 Title */}
         <div className="relative">
           <h1 className="text-8xl md:text-9xl font-black text-[#98c25f] tracking-wider leading-none select-none drop-shadow-[0_0_30px_rgba(152,194,95,0.1)]">
-            ٤٠٤
+            404
           </h1>
         </div>
 
