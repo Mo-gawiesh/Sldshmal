@@ -32,6 +32,7 @@ const FooterSection = dynamic(() => import('@/components/sections/FooterSection'
 // Browser-only Dynamic Client Components (SSR disabled)
 const WhatsAppFloating = dynamic(() => import('@/components/WhatsAppFloating').then(m => m.WhatsAppFloating), { ssr: false });
 const BackToTop = dynamic(() => import('@/components/BackToTop').then(m => m.BackToTop), { ssr: false });
+const CookieConsent = dynamic(() => import('@/components/CookieConsent').then(m => m.CookieConsent), { ssr: false });
 
 import heroImg from '@assets/generated_images/hero.webp';
 
@@ -172,6 +173,7 @@ export default function HomePage() {
         <FooterSection />
         <WhatsAppFloating />
         <BackToTop />
+        <CookieConsent />
       </main>
     </>
   );
