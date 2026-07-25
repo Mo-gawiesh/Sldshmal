@@ -14,13 +14,18 @@ export function CookieConsent() {
   useEffect(() => {
     // Check if user has already made a choice
     const consent = localStorage.getItem('cookie_consent');
+    let timer: NodeJS.Timeout | undefined;
+    
     if (!consent) {
       // Smooth appearance delay
-      const timer = setTimeout(() => {
+      timer = setTimeout(() => {
         setIsVisible(true);
       }, 1500);
-      return () => clearTimeout(timer);
     }
+    
+    return () => {
+      if (timer) clearTimeout(timer);
+    };
   }, []);
 
   const handleAcceptAll = () => {
