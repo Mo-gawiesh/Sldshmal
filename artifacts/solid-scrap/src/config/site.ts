@@ -3,7 +3,7 @@ export const siteConfig = {
   alternateName: 'Solid Scrap Of The North',
   description: 'مؤسسة صلد الشمال لشراء جميع أنواع الخردة والمعادن، الجمع، النقل، والفرز في المملكة العربية السعودية. حلول متكاملة للمخلفات الصناعية والورش والمصانع.',
   keywords: 'صلد الشمال, شراء خردة, سكراب تبوك, إعادة تدوير المعادن, شراء معادن السعودية, مخلفات صناعية, سكراب الحديد, سكراب النحاس',
-  url: 'https://solid-scrap.com',
+  url: 'https://solidscrap.com',
   ogImage: '/attached_assets/generated_images/hero.jpg',
   telephone: '+966543019329',
   email: 'Sldalshmal@gmail.com',
