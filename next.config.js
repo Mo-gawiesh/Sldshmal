@@ -23,7 +23,7 @@ const nextConfig = {
   // Webpack alias configuration
   webpack: (config) => {
     config.resolve.alias['@'] = path.resolve(process.cwd(), './src');
-    config.resolve.alias['@assets'] = path.resolve(process.cwd(), '../../attached_assets');
+    config.resolve.alias['@assets'] = path.resolve(process.cwd(), './attached_assets');
     return config;
   },
 
