@@ -2,10 +2,15 @@
   "name": "workspace",
   "version": "0.0.0",
   "license": "MIT",
+  "workspaces": [
+    "artifacts/*",
+    "lib/*",
+    "scripts"
+  ],
   "scripts": {
-    "build": "pnpm run typecheck && pnpm -r --if-present run build",
+    "build": "node -e \"const cmd = process.env.npm_config_user_agent && process.env.npm_config_user_agent.includes('pnpm') ? 'pnpm run typecheck && pnpm -r --if-present run build' : 'npm run build --workspaces --if-present'; require('child_process').execSync(cmd, { stdio: 'inherit' })\"",
     "typecheck:libs": "tsc --build",
-    "typecheck": "pnpm run typecheck:libs && pnpm -r --filter \"./artifacts/**\" --filter \"./scripts\" --if-present run typecheck"
+    "typecheck": "node -e \"const cmd = process.env.npm_config_user_agent && process.env.npm_config_user_agent.includes('pnpm') ? 'pnpm run typecheck:libs && pnpm -r --filter \\\"./artifacts/**\\\" --filter \\\"./scripts\\\" --if-present run typecheck' : 'npx tsc --build --if-present'; require('child_process').execSync(cmd, { stdio: 'inherit' })\""
   },
   "private": true,
   "dependencies": {},
