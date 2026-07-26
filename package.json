@@ -8,9 +8,9 @@
     "scripts"
   ],
   "scripts": {
-    "build": "node -e \"const cmd = process.env.npm_config_user_agent && process.env.npm_config_user_agent.includes('pnpm') ? 'pnpm run typecheck && pnpm -r --if-present run build' : 'npm run build --workspaces --if-present'; require('child_process').execSync(cmd, { stdio: 'inherit' })\"",
+    "build": "node -e \"const cmd = process.env.npm_config_user_agent && process.env.npm_config_user_agent.includes('pnpm') ? 'pnpm run typecheck && pnpm -r --if-present run build' : 'npm run build --prefix artifacts/solid-scrap'; require('child_process').execSync(cmd, { stdio: 'inherit' })\"",
     "typecheck:libs": "tsc --build",
-    "typecheck": "node -e \"const cmd = process.env.npm_config_user_agent && process.env.npm_config_user_agent.includes('pnpm') ? 'pnpm run typecheck:libs && pnpm -r --filter \\\"./artifacts/**\\\" --filter \\\"./scripts\\\" --if-present run typecheck' : 'npx tsc --build --if-present'; require('child_process').execSync(cmd, { stdio: 'inherit' })\""
+    "typecheck": "node -e \"const cmd = process.env.npm_config_user_agent && process.env.npm_config_user_agent.includes('pnpm') ? 'pnpm run typecheck:libs && pnpm -r --filter \\\"./artifacts/**\\\" --filter \\\"./scripts\\\" --if-present run typecheck' : 'npx tsc -p artifacts/solid-scrap/tsconfig.json --noEmit'; require('child_process').execSync(cmd, { stdio: 'inherit' })\""
   },
   "private": true,
   "dependencies": {},
