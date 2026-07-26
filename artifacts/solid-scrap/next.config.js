@@ -2,6 +2,9 @@ import path from 'path';
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  // Output standalone directory for deployment environments like Hostinger
+  output: 'standalone',
+
   // Remove X-Powered-By header for security
   poweredByHeader: false,
 
