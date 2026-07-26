@@ -1,5 +1,5 @@
 {
-  "extends": "../../tsconfig.base.json",
+  "extends": "./tsconfig.base.json",
   "compilerOptions": {
     "target": "es2022",
     "lib": ["dom", "dom.iterable", "esnext"],
@@ -21,14 +21,9 @@
     ],
     "paths": {
       "@/*": ["./src/*"],
-      "@assets/*": ["../../attached_assets/*"]
+      "@assets/*": ["./attached_assets/*"]
     }
   },
   "include": ["next-env.d.ts", "**/*.ts", "**/*.tsx", ".next/types/**/*.ts"],
-  "exclude": ["node_modules"],
-  "references": [
-    {
-      "path": "../../lib/api-client-react"
-    }
-  ]
+  "exclude": ["node_modules"]
 }
