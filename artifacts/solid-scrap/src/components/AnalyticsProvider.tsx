@@ -5,6 +5,7 @@ import { usePathname, useSearchParams } from 'next/navigation';
 import Script from 'next/script';
 import { GoogleTagManager } from '@next/third-parties/google';
 import { dispatchEventToAnalytics } from '@/lib/analytics';
+import { ANALYTICS } from '@/config/analytics';
 
 interface AnalyticsProviderProps {
   children: React.ReactNode;
@@ -35,11 +36,10 @@ function NavigationTracker() {
 export function AnalyticsProvider({ children }: AnalyticsProviderProps) {
   const [analyticsEnabled, setAnalyticsEnabled] = useState(false);
 
-  // Environment variables
+  // Analytics configuration IDs
   const isProduction = process.env.NODE_ENV === 'production';
-  const gaId = process.env.NEXT_PUBLIC_GA_MEASUREMENT_ID;
-  const gtmId = process.env.NEXT_PUBLIC_GTM_ID;
-  const clarityId = process.env.NEXT_PUBLIC_CLARITY_PROJECT_ID;
+  const gtmId = ANALYTICS.GTM_ID;
+  const clarityId = ANALYTICS.CLARITY_ID;
 
   // Single enableAnalytics function (cookie consent ready)
   const enableAnalytics = () => {

@@ -4,17 +4,22 @@
 
 ---
 
-## ١. المتغيرات البيئية المطلوبة (Required Environment Variables)
+## ١. إعدادات معرفات التحليلات (Analytics IDs Configuration)
 
-يجب إضافة المتغيرات التالية في لوحة تحكم المنصة المستضيفة (Vercel) أو في ملف `.env.local` للتطوير المحلي:
+يتم تخزين معرفات التتبع (GTM, GA4, Clarity) في ملف إعدادات موحد ومستقل داخل المشروع:
+`src/config/analytics.ts`
 
+```typescript
+export const ANALYTICS = {
+  GTM_ID: 'GTM-KTLSF5VW',
+  GA4_ID: 'G-7LC0HVQR24',
+  CLARITY_ID: '', // ضع معرف Clarity هنا إذا أردت تفعيله
+};
+```
+
+### المتغيرات البيئية الاختيارية (Optional Environment Variables):
+يُمكنك تفعيل وضع تصحيح الأخطاء والتتبع التفصيلي في كونسول المتصفح محلياً أو في الإنتاج عبر:
 ```env
-# معرفات تتبع التحليلات وسلوك الزوار (مطلوبة للإنتاج فقط)
-NEXT_PUBLIC_GA_MEASUREMENT_ID=G-XXXXXXXXXX
-NEXT_PUBLIC_GTM_ID=GTM-XXXXXXXX
-NEXT_PUBLIC_CLARITY_PROJECT_ID=XXXXXXXXXX
-
-# تفعيل وضع تصحيح الأخطاء والتتبع في الكونسول (اختياري)
 NEXT_PUBLIC_ANALYTICS_DEBUG=true
 ```
 
@@ -99,7 +104,6 @@ NEXT_PUBLIC_ANALYTICS_DEBUG=true
 ## ٧. استكشاف الأخطاء وإصلاحها (Troubleshooting)
 
 * **السؤال: البيانات لا تصل لـ Google Analytics؟**
-  * تأكد من أن بيئة التشغيل هي `production` وليست `development`.
-  * تأكد من إدخال الـ ID بشكل صحيح وبدون فراغات إضافية في لوحة المتغيرات البيئية.
+  * تأكد من إدخال الـ ID بشكل صحيح وبدون فراغات إضافية في ملف الإعدادات `src/config/analytics.ts`.
 * **السؤال: أحصل على خطأ EADDRINUSE عند تشغيل السيرفر؟**
   * هذا يعني أن هناك سيرفر قديم يعمل في الخلفية على نفس المنفذ. قم بإيقافه يدوياً أو أعد تشغيل الجهاز.
