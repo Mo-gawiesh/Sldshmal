@@ -2,6 +2,9 @@ import path from 'path';
 
 /** @type {import('next').NextConfig} */
 const nextConfig = {
+  // Output standalone directory for deployment environments like Hostinger
+  output: 'standalone',
+
   // Remove X-Powered-By header for security
   poweredByHeader: false,
 
@@ -20,7 +23,7 @@ const nextConfig = {
   // Webpack alias configuration
   webpack: (config) => {
     config.resolve.alias['@'] = path.resolve(process.cwd(), './src');
-    config.resolve.alias['@assets'] = path.resolve(process.cwd(), '../../attached_assets');
+    config.resolve.alias['@assets'] = path.resolve(process.cwd(), './attached_assets');
     return config;
   },
 
